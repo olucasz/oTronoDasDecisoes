@@ -38,8 +38,8 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: var(--space-8);
-  padding-block: clamp(2.25rem, 4vw, 3rem);
+  gap: var(--space-7);
+  padding-block: clamp(2rem, 3.6vw, 2.75rem);
 }
 
 .site-footer__grid {
@@ -49,11 +49,11 @@
 
 .site-footer__brand {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .site-footer__logo {
-  width: min(8.75rem, 100%);
+  width: min(8.25rem, 100%);
   height: auto;
 }
 
@@ -61,9 +61,9 @@
   display: grid;
   gap: var(--space-2);
   max-width: 18rem;
-  color: rgb(74 48 38 / 88%);
-  font-family: var(--font-subtitle);
-  font-size: 0.9rem;
+  color: var(--color-prose-soft);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   line-height: 1.55;
   text-wrap: pretty;
 }
@@ -74,31 +74,32 @@
 
 .site-footer__column-title {
   margin: 0 0 var(--space-4);
-  color: var(--color-gold-light);
+  color: var(--color-gold-ink);
   font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-size: var(--eyebrow-size);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--eyebrow-tracking);
   line-height: 1.2;
   text-transform: uppercase;
 }
 
 .site-footer__links {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 .site-footer__links a {
   width: fit-content;
-  color: rgb(74 48 38 / 92%);
-  font-family: var(--font-subtitle);
-  font-size: 0.98rem;
+  color: var(--color-prose);
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  font-weight: 600;
   line-height: 1.4;
   transition: color var(--transition-base);
 }
 
 .site-footer__links a:hover {
-  color: var(--color-gold-light);
+  color: var(--color-gold-ink);
 }
 
 .site-footer__social {
@@ -115,8 +116,8 @@
 
 .site-footer__social a {
   display: inline-grid;
-  width: 2.625rem;
-  height: 2.625rem;
+  width: 2.75rem;
+  height: 2.75rem;
   place-items: center;
   border: 0.0625rem solid rgb(178 139 67 / 26%);
   border-radius: 999rem;
@@ -189,7 +190,7 @@
 
 @media (min-width: 64rem) {
   .site-footer__inner {
-    padding-block: clamp(2.5rem, 4vw, 3.25rem);
+    padding-block: clamp(2.25rem, 3.5vw, 3rem);
   }
 }
 
@@ -200,7 +201,7 @@
   }
 
   .site-footer__grid {
-    gap: var(--space-7, 1.75rem);
+    gap: var(--space-6);
   }
 
   .site-footer__brand,

@@ -31,59 +31,58 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: clamp(1.75rem, 5vw, 4.25rem);
-  padding-block: clamp(2.75rem, 6vw, 4.5rem);
+  gap: clamp(1.5rem, 4vw, 3.25rem);
+  padding-block: var(--section-padding-y);
 }
 
 .reading-section__content {
   align-self: center;
-  max-width: 27rem;
+  max-width: 24rem;
 }
 
 .reading-section__eyebrow {
   position: relative;
   display: block;
   width: fit-content;
-  margin: 0 auto var(--space-6);
+  margin: 0 0 var(--space-4);
   color: var(--color-gold-ink);
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: var(--eyebrow-size);
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--eyebrow-tracking);
   line-height: 1.2;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
 }
 
 .reading-section__eyebrow::after {
   position: absolute;
   top: calc(100% + 0.55rem);
-  left: 50%;
-  width: 7rem;
+  left: 0;
+  width: 6.5rem;
   height: 0.0625rem;
   background: linear-gradient(90deg, transparent, rgb(178 139 67 / 70%), transparent);
   content: "";
-  transform: translateX(-50%);
 }
 
 .reading-section h2 {
   position: relative;
-  max-width: 22rem;
+  max-width: 21rem;
   margin: 0;
   color: var(--color-wine);
   font-family: var(--font-title);
-  font-size: clamp(3rem, 10vw, 4.1rem);
+  font-size: clamp(2.6rem, 8.2vw, 3.6rem);
   font-weight: 700;
   line-height: 0.94;
-  text-align: center;
+  text-align: left;
   text-wrap: balance;
 }
 
 .reading-section h2::after {
   display: block;
-  width: 10.5rem;
+  width: 7.25rem;
   height: 0.0625rem;
-  margin: var(--space-6) auto 0;
+  margin: var(--space-4) 0 0;
   background: linear-gradient(90deg, transparent, rgb(178 139 67 / 62%), transparent);
   content: "";
 }
@@ -91,10 +90,10 @@
 .reading-section__copy {
   display: grid;
   gap: var(--space-3);
-  margin-top: var(--space-6);
-  color: rgb(74 48 38 / 86%);
-  font-size: clamp(0.92rem, 2vw, 1rem);
-  line-height: 1.58;
+  margin-top: var(--space-4);
+  color: var(--color-prose);
+  font-size: var(--copy-size);
+  line-height: var(--copy-line-height);
   text-wrap: pretty;
 }
 
@@ -110,8 +109,8 @@
 
 .reading-section__question {
   font-family: var(--font-subtitle);
-  font-size: clamp(0.98rem, 2.2vw, 1.08rem);
-  line-height: 1.38;
+  font-size: clamp(1rem, 2vw, 1.08rem);
+  line-height: 1.42;
 }
 
 .reading-section__notes {
@@ -151,57 +150,43 @@
 .reading-book-shell {
   position: relative;
   isolation: isolate;
-  width: min(100%, 44rem);
+  width: min(100%, 56rem);
   margin-inline: auto;
-  padding: clamp(0.55rem, 1.4vw, 0.9rem) clamp(0.6rem, 1.5vw, 0.95rem)
-    clamp(1.05rem, 2vw, 1.4rem) clamp(1.2rem, 2.6vw, 2rem);
+  padding: clamp(0.7rem, 1.5vw, 1rem);
+  overflow: hidden;
 }
 
 .reading-book-shell::before {
   position: absolute;
-  inset: 0.15rem 0 0.05rem 0;
+  inset: 0;
   z-index: -1;
-  border: 0.0625rem solid rgb(178 139 67 / 35%);
-  border-radius: 0.45rem 0.8rem 0.28rem 0.42rem;
+  border: 0.0625rem solid rgb(178 139 67 / 34%);
+  border-radius: 0.7rem;
   background:
-    linear-gradient(90deg, var(--color-wine-cta) 0 8%, rgb(217 190 121 / 88%) 8% 8.8%, transparent 9.2%),
-    linear-gradient(180deg, rgb(252 250 246 / 0%), rgb(67 21 29 / 16%)),
-    var(--color-paper);
+    linear-gradient(180deg, rgb(252 250 246 / 96%), rgb(248 243 235 / 98%)),
+    var(--color-off-white);
   box-shadow:
-    0 1.35rem 2rem rgb(49 17 23 / 18%),
-    0 0.15rem 0 rgb(67 21 29 / 28%);
+    var(--shadow-editorial),
+    0 0 0 0.0625rem rgb(252 250 246 / 56%) inset;
   content: "";
-}
-
-.reading-book-shell::after {
-  position: absolute;
-  right: clamp(3.2rem, 9vw, 6.2rem);
-  bottom: 0.1rem;
-  z-index: 0;
-  width: 0.9rem;
-  height: 3.1rem;
-  background: linear-gradient(180deg, var(--color-gold-light), var(--color-gold));
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
-  content: "";
-  filter: drop-shadow(0 0.35rem 0.25rem rgb(49 17 23 / 20%));
 }
 
 .reading-book {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 44rem;
-  min-height: 26rem;
+  max-width: 56rem;
+  min-height: 30rem;
   margin-inline: auto;
 }
 
 .reading-book .stf__parent,
 .reading-book canvas {
-  border-radius: 0.28rem;
+  border-radius: 0.5rem;
 }
 
 .reading-book .stf__wrapper {
-  filter: drop-shadow(0 0.85rem 0.9rem rgb(49 17 23 / 16%));
+  filter: drop-shadow(0 1rem 1rem rgb(49 17 23 / 14%));
 }
 
 .reading-book-fallback {
@@ -219,10 +204,11 @@
 }
 
 .reading-book-fallback img {
-  width: min(72vw, 18rem);
-  flex: 0 0 min(72vw, 18rem);
-  border-radius: var(--radius-xs);
-  box-shadow: 0 0.5rem 1rem rgb(49 17 23 / 14%);
+  width: min(80vw, 20rem);
+  flex: 0 0 min(80vw, 20rem);
+  height: auto;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.75rem 1.25rem rgb(49 17 23 / 12%);
   scroll-snap-align: center;
 }
 
@@ -238,13 +224,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .reading-control {
   display: inline-grid;
-  width: 2.45rem;
-  height: 2.45rem;
+  width: 2.75rem;
+  height: 2.75rem;
   place-items: center;
   border: 0.0625rem solid var(--color-border-strong);
   border-radius: 999rem;
@@ -262,7 +248,7 @@
   display: block;
   transform: translateY(-0.0625rem);
   font-family: Georgia, serif;
-  font-size: 2rem;
+  font-size: 1.85rem;
   line-height: 1;
 }
 
@@ -283,12 +269,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: 0.44rem;
 }
 
 .reading-dot {
-  width: 0.48rem;
-  height: 0.48rem;
+  width: 0.44rem;
+  height: 0.44rem;
   padding: 0;
   border: 0.0625rem solid var(--color-border-strong);
   border-radius: 999rem;
@@ -309,63 +295,59 @@
 .reading-section__cta {
   width: max-content;
   max-width: 100%;
-  min-height: 3.05rem;
   min-width: min(100%, 18.25rem);
-  margin-top: var(--space-6);
-  padding-inline: 1.25rem;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  letter-spacing: 0.055em;
-  text-transform: uppercase;
+  margin-top: var(--space-5);
   white-space: nowrap;
 }
 
 @media (min-width: 48rem) {
   .reading-book-fallback img {
-    width: min(42vw, 20rem);
-    flex-basis: min(42vw, 20rem);
+    width: min(42vw, 21rem);
+    flex-basis: min(42vw, 21rem);
   }
 }
 
 @media (min-width: 64rem) {
   .reading-section__inner {
-    grid-template-columns: minmax(19rem, 0.72fr) minmax(32rem, 1.28fr);
-    min-height: calc(100svh - 4.75rem);
-    align-content: start;
+    grid-template-columns: minmax(18rem, 0.68fr) minmax(39rem, 1.32fr);
+    min-height: min(50rem, calc(100svh - 4.75rem));
     align-items: center;
-    padding-block: clamp(2.5rem, 4.7vw, 4rem);
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+    padding-block: clamp(2.5rem, 4.7vw, 3.75rem);
   }
 
   .reading-section h2 {
-    font-size: clamp(3.45rem, 4.8vw, 4.35rem);
+    font-size: clamp(3.1rem, 4.5vw, 4rem);
+    max-width: 20rem;
   }
 
   .reading-section__copy {
+    max-width: 22rem;
     font-size: 0.95rem;
   }
 
   .reading-book-shell {
-    width: min(100%, 50rem);
+    width: min(100%, 56rem);
   }
 
   .reading-book {
-    max-width: 50rem;
-    min-height: 31.5rem;
+    max-width: 56rem;
+    min-height: 35rem;
   }
 }
 
 @media (min-width: 80rem) {
   .reading-section__inner {
-    grid-template-columns: minmax(20rem, 0.68fr) minmax(36rem, 1.32fr);
+    grid-template-columns: minmax(19rem, 0.64fr) minmax(42rem, 1.36fr);
   }
 
   .reading-book-shell {
-    width: min(100%, 54rem);
+    width: min(100%, 60rem);
   }
 
   .reading-book {
-    max-width: 54rem;
-    min-height: 33.5rem;
+    max-width: 60rem;
+    min-height: 37rem;
   }
 }
 
@@ -380,111 +362,124 @@
   }
 
   .reading-section__inner {
-    gap: var(--space-6);
-    padding-block: clamp(1.75rem, 7vw, 2.5rem);
+    gap: var(--space-5);
+    padding-block: clamp(1.75rem, 6vw, 2.4rem);
   }
 
   .reading-section__content {
     text-align: left;
+    max-width: 100%;
   }
 
   .reading-section__eyebrow {
-    margin: 0 0 var(--space-5);
-    font-size: 0.68rem;
-    letter-spacing: 0.13em;
+    margin: 0 0 var(--space-4);
     text-align: left;
   }
 
   .reading-section__eyebrow::after {
     left: 0;
-    width: clamp(4.5rem, 26vw, 7rem);
+    width: clamp(4.25rem, 24vw, 6.5rem);
     transform: none;
   }
 
   .reading-section h2 {
-    max-width: 20rem;
-    font-size: clamp(2.55rem, 11.5vw, 3.05rem);
+    max-width: 18rem;
+    font-size: clamp(2.35rem, 10.2vw, 2.95rem);
     line-height: 0.96;
     text-align: left;
   }
 
   .reading-section h2::after {
-    width: 8.5rem;
-    margin: var(--space-5) 0 0;
+    width: 6.5rem;
+    margin: var(--space-4) 0 0;
   }
 
   .reading-section__copy {
     gap: var(--space-3);
-    margin-top: var(--space-5);
-    font-size: 0.98rem;
-    line-height: 1.5;
+    margin-top: var(--space-4);
+    font-size: 0.95rem;
+    line-height: 1.54;
   }
 
   .reading-section__question {
-    font-size: 1rem;
-    line-height: 1.36;
+    font-size: 0.98rem;
+    line-height: 1.38;
   }
 
   .reading-section__notes {
     display: none;
   }
 
-  .reading-book-shell {
-    padding: 0.4rem 0.35rem 0.75rem 0.9rem;
+  .reading-book {
+    min-height: min(114vw, 27rem);
   }
 
-  .reading-book {
-    min-height: min(106vw, 25rem);
+  .reading-section__viewer.is-fallback .reading-book-fallback {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(15rem, 78vw, 20rem);
+    align-items: stretch;
+    height: clamp(16rem, 72vw, 22rem);
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .reading-section__viewer.is-fallback .reading-book-fallback img {
+    display: block;
+    width: 100%;
+    height: 100% !important;
+    max-width: none;
+    object-fit: cover;
+    flex: 0 0 auto;
   }
 
   .reading-controls {
-    gap: var(--space-3);
+    gap: var(--space-2);
   }
 
   .reading-control {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
   }
 
   .reading-section__cta {
     min-width: min(100%, 18rem);
-    margin-top: var(--space-5);
-    font-size: 0.74rem;
+    margin-top: var(--space-4);
   }
 }
 
 @media (max-width: 23.4375rem) {
   .reading-section h2 {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
   }
 
   .reading-book {
-    min-height: 22rem;
+    min-height: 21.5rem;
   }
 }
 
 @media (min-width: 64rem) and (max-height: 48rem) {
   .reading-section__inner {
-    padding-block: clamp(2rem, 4vw, 3rem);
+    padding-block: clamp(2rem, 4vw, 2.8rem);
   }
 
   .reading-section h2 {
-    font-size: clamp(3.2rem, 4.5vw, 4rem);
+    font-size: clamp(3rem, 4.2vw, 3.7rem);
   }
 
   .reading-section__copy {
     gap: var(--space-3);
-    margin-top: var(--space-5);
-    font-size: 0.96rem;
-    line-height: 1.58;
+    margin-top: var(--space-4);
+    font-size: 0.92rem;
+    line-height: 1.54;
   }
 
   .reading-section__notes {
-    margin-top: var(--space-5);
+    margin-top: var(--space-4);
   }
 
   .reading-book {
-    min-height: 29rem;
+    min-height: 31rem;
   }
 }
 

@@ -38,6 +38,7 @@
     let pageFlip = null;
     let currentPage = 0;
     let scrollRaf = null;
+    const shouldUseFallback = window.matchMedia("(max-width: 47.9375rem)").matches;
 
     const dots = pages.map((page, index) => {
       const dot = document.createElement("button");
@@ -63,9 +64,10 @@
         const targetPage = fallback.children[currentPage];
 
         if (targetPage) {
-          targetPage.scrollIntoView({
-            block: "nearest",
-            inline: "center",
+          const left = targetPage.offsetLeft - (fallback.clientWidth - targetPage.clientWidth) / 2;
+
+          fallback.scrollTo({
+            left,
             behavior: options.instant ? "auto" : "smooth",
           });
         }
@@ -132,18 +134,18 @@
     );
 
     try {
-      if (!window.St || !window.St.PageFlip) {
+      if (shouldUseFallback || !window.St || !window.St.PageFlip) {
         activateFallback();
         return;
       }
 
       pageFlip = new window.St.PageFlip(book, {
-        width: 420,
-        height: 590,
-        minWidth: 280,
-        maxWidth: 500,
-        minHeight: 392,
-        maxHeight: 700,
+        width: 560,
+        height: 760,
+        minWidth: 360,
+        maxWidth: 680,
+        minHeight: 500,
+        maxHeight: 920,
         size: "stretch",
         autoSize: true,
         drawShadow: true,

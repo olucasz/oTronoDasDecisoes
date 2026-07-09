@@ -34,7 +34,7 @@
   z-index: 1;
   display: grid;
   gap: clamp(2rem, 8vw, 4.5rem);
-  padding-block: clamp(2.75rem, 9vw, 5.25rem);
+  padding-block: var(--section-padding-y);
 }
 
 .offer-section__gallery {
@@ -53,7 +53,7 @@
   background:
     linear-gradient(180deg, rgb(252 250 246 / 46%), rgb(233 221 204 / 44%)),
     var(--color-off-white);
-  box-shadow: 0 0.5rem 0.5rem rgb(49 17 23 / 8%);
+  box-shadow: var(--shadow-editorial);
 }
 
 .offer-section__main img {
@@ -124,9 +124,9 @@
   margin: 0 0 var(--space-3);
   color: var(--color-gold-ink);
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: var(--eyebrow-size);
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--eyebrow-tracking);
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -148,10 +148,10 @@
   gap: var(--space-4);
   max-width: 30rem;
   margin: var(--space-5) 0 0;
-  color: rgb(74 48 38 / 90%);
-  font-family: var(--font-subtitle);
-  font-size: clamp(0.98rem, 3.5vw, 1.05rem);
-  line-height: 1.72;
+  color: var(--color-prose);
+  font-family: var(--font-body);
+  font-size: var(--copy-size);
+  line-height: var(--copy-line-height);
   text-wrap: pretty;
 }
 
@@ -238,9 +238,6 @@
 
 .offer-section__cta {
   width: min(100%, 23rem);
-  min-height: 3.55rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .offer-section__microcopy {
@@ -278,10 +275,10 @@
 
   .offer-section__inner {
     grid-template-columns: minmax(29rem, 1.08fr) minmax(25rem, 0.92fr);
-    min-height: calc(100svh - 4.75rem);
+    min-height: min(52rem, calc(100svh - 4.75rem));
     align-items: center;
     column-gap: clamp(3.25rem, 6.4vw, 6rem);
-    padding-block: clamp(3.25rem, 5vw, 4.75rem);
+    padding-block: clamp(3rem, 4.8vw, 4.35rem);
   }
 
   .offer-section__gallery {
@@ -290,7 +287,7 @@
   }
 
   .offer-section__main {
-    width: min(100%, 39.5rem);
+    width: min(100%, 38rem);
   }
 
   .offer-section__content {
@@ -299,12 +296,13 @@
   }
 
   .offer-section h2 {
-    font-size: clamp(4.05rem, 5.2vw, 5rem);
+    font-size: clamp(3.45rem, 4.6vw, 4.35rem);
+    line-height: 0.96;
   }
 
   .offer-section__copy {
     margin-top: var(--space-5);
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
 }
 
@@ -314,7 +312,7 @@
   }
 
   .offer-section__main {
-    width: min(46vw, 41.5rem);
+    width: min(44vw, 39rem);
   }
 }
 
@@ -326,7 +324,7 @@
 
   .offer-section__inner {
     gap: var(--space-6);
-    padding-block: clamp(2.25rem, 8vw, 3.35rem);
+    padding-block: clamp(2.1rem, 7vw, 3rem);
   }
 
   .offer-section__content {
@@ -342,7 +340,7 @@
   .offer-section__copy {
     gap: var(--space-3);
     margin-top: var(--space-4);
-    font-size: 0.94rem;
+    font-size: 0.95rem;
     line-height: 1.62;
   }
 

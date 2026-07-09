@@ -1,15 +1,17 @@
 .button {
   display: inline-flex;
-  min-height: 3.5rem;
+  min-height: 3.25rem;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-md);
-  padding: 0.95rem 1.35rem;
-  font-family: var(--font-subtitle);
-  font-size: 1rem;
+  padding: 0.86rem 1.3rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   font-weight: 700;
-  line-height: 1.1;
+  letter-spacing: 0.055em;
+  line-height: 1.15;
   text-align: center;
+  text-transform: uppercase;
   transition:
     background-color var(--transition-base),
     border-color var(--transition-base),
@@ -20,6 +22,10 @@
 
 .button:hover {
   transform: translateY(-0.0625rem);
+}
+
+.button:active {
+  transform: translateY(0);
 }
 
 .button--primary {
@@ -36,7 +42,7 @@
 
 .button--secondary {
   border: 0.0625rem solid var(--color-border-strong);
-  background: rgb(252 250 246 / 74%);
+  background: rgb(252 250 246 / 84%);
   color: var(--color-wine);
 }
 
@@ -48,6 +54,6 @@
 
 .button--small {
   min-height: 2.875rem;
-  padding: 0.75rem 1.05rem;
-  font-size: 0.875rem;
+  padding: 0.72rem 1rem;
+  font-size: 0.72rem;
 }
