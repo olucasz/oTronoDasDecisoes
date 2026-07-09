@@ -1,0 +1,68 @@
+:root {
+  --color-paper: #f8f3eb;
+  --color-off-white: #fcfaf6;
+  --color-wine: #311117;
+  --color-wine-deep: #18080b;
+  --color-wine-cta: #43151d;
+  --color-wine-hover: #5b1d29;
+  --color-brown-editorial: #4a3026;
+  --color-gold: #b28b43;
+  --color-gold-light: #d9be79;
+  --color-gold-ink: #8f6a2f;
+  --color-text: #2d2d2d;
+  --color-muted: #5f5f5f;
+  --color-border: #e9ddcc;
+  --color-border-strong: #d8bf91;
+  --color-focus: var(--color-gold-ink);
+  --section-wine-bg: #23090d;
+  --section-wine-soft: #3a0f16;
+  --section-gold-border: rgb(178 139 67 / 58%);
+  --section-card-glow: 0 0 2.125rem rgb(217 190 121 / 22%);
+
+  --font-title: "Cormorant Garamond", Georgia, serif;
+  --font-subtitle: "Libre Baskerville", Georgia, serif;
+  --font-body: "Inter", Arial, sans-serif;
+  --font-signature: "Allura", "Snell Roundhand", "Segoe Script", cursive;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-xs: var(--space-2);
+  --space-sm: var(--space-3);
+  --space-md: var(--space-4);
+  --space-lg: var(--space-6);
+  --space-xl: var(--space-10);
+  --space-2xl: var(--space-16);
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+
+  --shadow-soft: 0 0.75rem 1rem rgb(49 17 23 / 10%);
+  --shadow-button: 0 0.375rem 0.5rem rgb(49 17 23 / 16%);
+
+  --z-header: 20;
+  --z-menu: 30;
+  --z-section-bg: -2;
+  --z-section-overlay: -1;
+
+  --transition-fast: 160ms ease;
+  --transition-base: 240ms ease;
+
+  --container-max: 76rem;
+  --container-padding: 1rem;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --container-padding: 2rem;
+  }
+}

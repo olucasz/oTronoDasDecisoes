@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Pré-venda oficial do livro O Trono das Decisões, de Mateus Chaves Generoso."
+    />
+    <title>O Trono das Decisões | Pré-venda oficial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      href="./public/assets/hero/fundo-livroHero.png"
+      as="image"
+      fetchpriority="high"
+    />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="site-header__brand" href="./index.html" aria-label="O Trono das Decisões">
+          <img
+            class="site-header__logo"
+            src="./public/assets/logo/logo.png"
+            width="1246"
+            height="923"
+            alt="O Trono das Decisões"
+          />
+        </a>
+
+        <nav class="site-nav" id="primary-navigation" aria-label="Navegação principal" data-nav>
+          <a href="#universo-do-livro">Sobre o livro</a>
+          <a href="#sobre-o-autor">Sobre o autor</a>
+          <a href="#faq">FAQ</a>
+          <a class="button button--small button--primary site-nav__cta" href="#pre-venda-oferta">
+            Garantir meu exemplar
+          </a>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          data-menu-toggle
+        >
+          <span class="sr-only" data-menu-label>Abrir menu</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero" id="pre-venda" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <figure class="hero__mobile-visual" data-reveal>
+            <img
+              src="./public/assets/hero/fundo-livroHero.png"
+              width="1672"
+              height="941"
+              sizes="100vw"
+              alt="Livro O Trono das Decisões em pé sobre pedestal em uma sala clássica"
+              fetchpriority="high"
+            />
+          </figure>
+
+          <div class="hero__content" data-reveal>
+            <p class="hero__eyebrow">Pré-venda oficial</p>
+            <h1 id="hero-title">O Trono das Decisões</h1>
+            <p class="hero__lead">
+              O trono nunca fica vazio.<br />
+              A questão é: quem está sentado nele?
+            </p>
+            <p class="hero__text">
+              Suas escolhas não nascem no vazio. Elas revelam o que governa seus
+              pensamentos, seus impulsos e os caminhos que você decide seguir.
+            </p>
+            <p class="hero__text">
+              Um livro sobre decisões, propósito e discernimento espiritual para
+              quem deseja viver com mais clareza diante de Deus.
+            </p>
+
+            <div class="hero__actions" aria-label="Ações da pré-venda">
+              <a class="button button--primary" href="#pre-venda-oferta">Garantir meu exemplar</a>
+              <a class="button button--secondary" href="#trecho">Ler um trecho</a>
+            </div>
+
+            <p class="hero__secure">Compra segura pelo Mercado Pago.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="universe-section" id="universo-do-livro" aria-labelledby="universe-title">
+        <div class="universe-section__bg" aria-hidden="true"></div>
+
+        <div class="container universe-section__container">
+          <header class="universe-section__header" data-reveal>
+            <p class="section-eyebrow">Universo do livro</p>
+            <h2 id="universe-title">O universo por trás de cada decisão</h2>
+            <p>
+              Toda escolha nasce em um reino invisível.<br />
+              E tudo no reino revela quem está no governo.
+            </p>
+          </header>
+
+          <div class="universe-carousel" data-universe-carousel data-reveal>
+            <button
+              class="universe-carousel__arrow universe-carousel__arrow--prev"
+              type="button"
+              aria-label="Ver item anterior"
+              data-universe-prev
+            >
+              <span aria-hidden="true">&lsaquo;</span>
+            </button>
+
+            <div class="universe-carousel__track" data-universe-track>
+              <button
+                class="universe-card"
+                type="button"
+                aria-label="O Cuco: O cuco não chama atenção para si. Ele apenas lembra, no tempo certo, aquilo que jamais deveria ser esquecido."
+                data-universe-card
+                data-universe-title="O Cuco"
+              >
+                <img
+                  src="./public/assets/universe/cuco.png"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Carta O Cuco"
+                />
+                <span class="sr-only">
+                  O Cuco. O cuco não chama atenção para si. Ele apenas lembra,
+                  no tempo certo, aquilo que jamais deveria ser esquecido.
+                </span>
+              </button>
+
+              <button
+                class="universe-card"
+                type="button"
+                aria-label="O Rei: Todo reino revela a grandeza do seu Rei. Por isso, o Criador é o único capaz de conduzir a história segundo o seu verdadeiro propósito."
+                data-universe-card
+                data-universe-title="O Rei"
+              >
+                <img
+                  src="./public/assets/universe/rei.png"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Carta O Rei"
+                />
+                <span class="sr-only">
+                  O Rei. Todo reino revela a grandeza do seu Rei. Por isso, o
+                  Criador é o único capaz de conduzir a história segundo o seu
+                  verdadeiro propósito.
+                </span>
+              </button>
+
+              <button
+                class="universe-card"
+                type="button"
+                aria-label="O Bobo da Corte: O bobo não precisa de autoridade para influenciar. Às vezes, basta uma palavra distorcida no momento certo para mudar o rumo de um reino."
+                data-universe-card
+                data-universe-title="O Bobo da Corte"
+              >
+                <img
+                  src="./public/assets/universe/bobo.png"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Carta O Bobo da Corte"
+                />
+                <span class="sr-only">
+                  O Bobo da Corte. O bobo não precisa de autoridade para
+                  influenciar. Às vezes, basta uma palavra distorcida no momento
+                  certo para mudar o rumo de um reino.
+                </span>
+              </button>
+
+              <button
+                class="universe-card"
+                type="button"
+                aria-label="O Trono: O trono não cria decisões. Ele apenas revela quem realmente governa o reino."
+                data-universe-card
+                data-universe-title="O Trono"
+                data-universe-initial
+              >
+                <img
+                  src="./public/assets/universe/trono.png"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Carta O Trono"
+                />
+                <span class="sr-only">
+                  O Trono. O trono não cria decisões. Ele apenas revela quem
+                  realmente governa o reino.
+                </span>
+              </button>
+
+              <button
+                class="universe-card"
+                type="button"
+                aria-label="O Mordomo: O mordomo não é lembrado pelas decisões que tomou, mas pela fidelidade com que executou as decisões do Rei."
+                data-universe-card
+                data-universe-title="O Mordomo"
+              >
+                <img
+                  src="./public/assets/universe/mordomo.png"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Carta O Mordomo"
+                />
+                <span class="sr-only">
+                  O Mordomo. O mordomo não é lembrado pelas decisões que tomou,
+                  mas pela fidelidade com que executou as decisões do Rei.
+                </span>
+              </button>
+
+              <button
+                class="universe-card"
+                type="button"
+                aria-label="Os Guardas do Palácio: Os melhores guardas não protegem apenas portas."
+                data-universe-card
+                data-universe-title="Os Guardas do Palácio"
+              >
+                <img
+                  src="./public/assets/universe/guardas.png"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Carta Os Guardas do Palácio"
+                />
+                <span class="sr-only">
+                  Os Guardas do Palácio. Os melhores guardas não protegem apenas
+                  portas.
+                </span>
+              </button>
+
+              <button
+                class="universe-card"
+                type="button"
+                aria-label="O Reino: Todo reino carrega as marcas de quem o governa. Assim também é a nossa vida."
+                data-universe-card
+                data-universe-title="O Reino"
+              >
+                <img
+                  src="./public/assets/universe/reino.png"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Carta O Reino"
+                />
+                <span class="sr-only">
+                  O Reino. Todo reino carrega as marcas de quem o governa. Assim
+                  também é a nossa vida.
+                </span>
+              </button>
+            </div>
+
+            <button
+              class="universe-carousel__arrow universe-carousel__arrow--next"
+              type="button"
+              aria-label="Ver próximo item"
+              data-universe-next
+            >
+              <span aria-hidden="true">&rsaquo;</span>
+            </button>
+          </div>
+
+          <div
+            class="universe-carousel__dots"
+            role="group"
+            aria-label="Navegação do slideshow"
+            data-universe-dots
+          ></div>
+        </div>
+      </section>
+
+      <section class="reading-section" id="trecho" aria-labelledby="reading-title">
+        <div class="container reading-section__inner">
+          <div class="reading-section__content" data-reveal>
+            <p class="reading-section__eyebrow">Leitura interativa</p>
+            <h2 id="reading-title">Leia antes de decidir.</h2>
+            <div class="reading-section__copy">
+              <p>
+                As primeiras páginas de <strong>O Trono das Decisões</strong>
+                apresentam a pergunta central desta obra:
+              </p>
+              <p class="reading-section__question">
+                quem realmente governa as escolhas que moldam a nossa vida?
+              </p>
+              <p>
+                Folheie um trecho da introdução e entre no coração da mensagem.
+              </p>
+            </div>
+            <a class="button button--primary reading-section__cta" href="#pre-venda-oferta">
+              Quero garantir meu exemplar
+            </a>
+            <ul class="reading-section__notes" aria-label="Detalhes do trecho">
+              <li>Introdução real do livro</li>
+              <li>Leitura em páginas viráveis</li>
+              <li>Experiência otimizada para celular</li>
+            </ul>
+          </div>
+
+          <div class="reading-section__viewer" data-reading-viewer data-reveal>
+            <div class="reading-book-shell">
+              <div
+                class="reading-book"
+                data-reading-book
+                aria-label="Leitor interativo com trecho do livro O Trono das Decisões"
+              ></div>
+              <div class="reading-book-fallback" data-reading-fallback aria-hidden="true">
+                <img
+                  src="./public/assets/reading/reading-page-01.webp"
+                  width="1772"
+                  height="2480"
+                  alt="Página de introdução do livro O Trono das Decisões"
+                />
+                <img
+                  src="./public/assets/reading/reading-page-02.webp"
+                  width="1772"
+                  height="2480"
+                  loading="lazy"
+                  alt="Página do sumário do livro O Trono das Decisões"
+                />
+                <img
+                  src="./public/assets/reading/reading-page-03.webp"
+                  width="1772"
+                  height="2480"
+                  loading="lazy"
+                  alt="Página do primeiro capítulo do livro O Trono das Decisões"
+                />
+              </div>
+            </div>
+
+            <div class="reading-controls" aria-label="Controles da leitura">
+              <button
+                class="reading-control"
+                type="button"
+                aria-label="Página anterior"
+                data-reading-prev
+              >
+                <span aria-hidden="true">&lsaquo;</span>
+              </button>
+              <div class="reading-dots" role="group" aria-label="Páginas do trecho" data-reading-dots></div>
+              <button
+                class="reading-control"
+                type="button"
+                aria-label="Próxima página"
+                data-reading-next
+              >
+                <span aria-hidden="true">&rsaquo;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="author-section" id="sobre-o-autor" aria-labelledby="author-title">
+        <div class="container author-section__inner">
+          <header class="author-section__heading" data-reveal>
+            <p class="author-section__eyebrow">Sobre o autor</p>
+            <h2 id="author-title">Mateus Chaves Generoso</h2>
+            <p class="author-section__lead">
+              Pastor, teólogo, esposo, pai e autor cristão.
+            </p>
+          </header>
+
+          <figure class="author-section__media" data-reveal>
+            <div class="author-section__portrait">
+              <img
+                src="./public/assets/author/autor.jpg"
+                width="1365"
+                height="2048"
+                loading="lazy"
+                decoding="async"
+                alt="Retrato de Mateus Chaves Generoso"
+              />
+            </div>
+            <div class="author-section__family">
+              <img
+                src="./public/assets/author/familia.jpg"
+                width="1365"
+                height="2048"
+                loading="lazy"
+                decoding="async"
+                alt="Mateus Chaves Generoso com sua esposa Ana Cláudia e suas filhas Betina e Laura"
+              />
+            </div>
+          </figure>
+
+          <div class="author-section__bio" data-reveal>
+            <div class="author-section__bio-text author-section__bio-text--desktop">
+              <p>
+                Mateus Chaves Generoso nasceu em 30 de dezembro de 1993, no estado
+                do Paraná. Casado há mais de dez anos com Ana Cláudia, é pai de
+                Betina e Laura.
+              </p>
+              <p>
+                Formado em Teologia pela Universidade Metodista de São Paulo,
+                dedica sua vida ao ministério pastoral, ao ensino e à comunicação
+                da fé cristã.
+              </p>
+              <p>
+                Com quase uma década de experiência ministerial, serviu por quatro
+                anos como pastor acadêmico na Igreja Metodista em Tucuruvi, São
+                Paulo, e atualmente exerce seu quinto ano como pastor titular no
+                campo missionário de Iguatu, no Paraná.
+              </p>
+              <p>
+                Criado em um lar onde os princípios do Evangelho sempre estiveram
+                presentes, Mateus carrega em sua trajetória uma profunda reflexão
+                sobre decisões, propósito e obediência a Deus.
+              </p>
+              <p>
+                Mais do que escritor, é alguém apaixonado por ensinar, compartilhar
+                conhecimento e comunicar verdades que transformam vidas.
+              </p>
+            </div>
+
+            <div class="author-section__bio-text author-section__bio-text--mobile">
+              <p>
+                Mateus Chaves Generoso é pastor, esposo, pai e formado em Teologia
+                pela Universidade Metodista de São Paulo.
+              </p>
+              <p>
+                Com quase uma década de experiência ministerial, dedica sua vida ao
+                ensino, ao pastoreio e à comunicação da fé cristã. Em
+                <strong>O Trono das Decisões</strong>, reúne uma reflexão profunda
+                sobre escolhas, propósito e discernimento espiritual.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="offer-section" id="pre-venda-oferta" aria-labelledby="offer-title">
+        <div class="container offer-section__inner">
+          <div class="offer-section__gallery" data-offer-gallery data-reveal>
+            <figure class="offer-section__main">
+              <img
+                src="./public/assets/book/livroEmPe.png"
+                width="1600"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+                alt="Livro O Trono das Decisões em pé sobre exemplares deitados"
+                data-offer-main-image
+              />
+            </figure>
+
+            <div class="offer-section__thumbs" aria-label="Selecionar imagem do livro">
+              <button
+                class="offer-section__thumb"
+                type="button"
+                aria-current="true"
+                aria-label="Ver livro em pé"
+                data-offer-thumb
+                data-offer-src="./public/assets/book/livroEmPe.png"
+                data-offer-alt="Livro O Trono das Decisões em pé sobre exemplares deitados"
+              >
+                <img
+                  src="./public/assets/book/livroEmPe.png"
+                  width="1600"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+
+              <button
+                class="offer-section__thumb"
+                type="button"
+                aria-current="false"
+                aria-label="Ver livro deitado"
+                data-offer-thumb
+                data-offer-src="./public/assets/book/livroDeitado.png"
+                data-offer-alt="Livro O Trono das Decisões deitado em perspectiva"
+              >
+                <img
+                  src="./public/assets/book/livroDeitado.png"
+                  width="1600"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+
+              <button
+                class="offer-section__thumb"
+                type="button"
+                aria-current="false"
+                aria-label="Ver páginas abertas"
+                data-offer-thumb
+                data-offer-src="./public/assets/book/livroDeitado2.png"
+                data-offer-alt="Livro O Trono das Decisões aberto com capa e contracapa visíveis"
+              >
+                <img
+                  src="./public/assets/book/livroDeitado2.png"
+                  width="1600"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+
+              <button
+                class="offer-section__thumb"
+                type="button"
+                aria-current="false"
+                aria-label="Ver capa e contracapa"
+                data-offer-thumb
+                data-offer-src="./public/assets/book/livroDeitado3.png"
+                data-offer-alt="Capa e contracapa do livro O Trono das Decisões"
+              >
+                <img
+                  src="./public/assets/book/livroDeitado3.png"
+                  width="1600"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-section__content" data-reveal>
+            <p class="offer-section__eyebrow">Oferta especial</p>
+            <h2 id="offer-title">Garanta seu exemplar na pré-venda</h2>
+
+            <div class="offer-section__copy">
+              <p>
+                A primeira edição de <strong>O Trono das Decisões</strong> já está
+                pronta para impressão.
+              </p>
+              <p>
+                Reserve agora o seu exemplar com valor especial de pré-venda e
+                receba o livro físico em até 14 dias após a confirmação do pedido.
+              </p>
+            </div>
+
+            <div class="offer-section__price" aria-label="Preço da pré-venda">
+              <div class="offer-section__price-row">
+                <span class="offer-section__price-label">De</span>
+                <strong class="offer-section__old-price">R$ 42,90</strong>
+              </div>
+              <span class="offer-section__price-rule" aria-hidden="true"></span>
+              <div class="offer-section__price-row">
+                <span class="offer-section__price-label">Por apenas</span>
+                <strong class="offer-section__current-price">R$ 35,00</strong>
+              </div>
+            </div>
+
+            <p class="offer-section__deadline">
+              Pré-venda disponível entre os dias 10 e 15.
+            </p>
+            <a class="button button--primary offer-section__cta" href="#">
+              Comprar na pré-venda
+            </a>
+            <p class="offer-section__microcopy">
+              Você será direcionado para o ambiente seguro do Mercado Pago.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-message" aria-labelledby="final-message-title">
+        <div class="container final-message__inner" data-reveal>
+          <div class="final-message__mark" aria-hidden="true">
+            <span class="final-message__crown">♔</span>
+          </div>
+          <span class="final-message__rule" aria-hidden="true"></span>
+
+          <div class="final-message__copy">
+            <h2 id="final-message-title">Uma mensagem para você</h2>
+            <div class="final-message__text">
+              <p>
+                Em algum momento, todos nós nos vemos diante de decisões capazes
+                de mudar o rumo da nossa história.
+              </p>
+              <p>
+                Estas páginas são um convite para refletir sobre as vozes que
+                influenciam nossas escolhas, os caminhos que seguimos e quem
+                realmente ocupa o trono das nossas decisões.
+              </p>
+              <p>
+                Minha oração é que, ao final desta leitura, você encontre mais
+                clareza, propósito e coragem para obedecer às ordens do Rei —
+                aquele que merece estar assentado no trono.
+              </p>
+            </div>
+          </div>
+
+          <p class="final-message__signature">Mateus Chaves Generoso</p>
+        </div>
+      </section>
+
+      <footer class="site-footer" aria-labelledby="footer-title">
+        <div class="container site-footer__inner">
+          <div class="site-footer__grid">
+            <div class="site-footer__brand">
+              <img
+                class="site-footer__logo"
+                src="./public/assets/logo/logo.png"
+                width="1246"
+                height="923"
+                alt="O Trono das Decisões"
+              />
+              <h2 class="sr-only" id="footer-title">Rodapé</h2>
+              <div class="site-footer__legal">
+                <p>Compra processada pelo Mercado Pago.</p>
+                <p>Livro físico em pré-venda.</p>
+                <p>Entrega em até 14 dias conforme condições informadas.</p>
+              </div>
+            </div>
+
+            <nav class="site-footer__quick-links" aria-label="Links rápidos do rodapé">
+              <p class="site-footer__column-title">Links rápidos</p>
+              <div class="site-footer__links">
+                <a href="#">Comprar</a>
+                <a href="#">Ler trecho</a>
+                <a href="#">Sobre o autor</a>
+                <a href="#">Contato</a>
+              </div>
+            </nav>
+
+            <div class="site-footer__social-wrap" aria-label="Redes sociais">
+              <p class="site-footer__column-title">Redes sociais</p>
+              <div class="site-footer__social">
+                <a href="#" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7.75 3h8.5A4.75 4.75 0 0 1 21 7.75v8.5A4.75 4.75 0 0 1 16.25 21h-8.5A4.75 4.75 0 0 1 3 16.25v-8.5A4.75 4.75 0 0 1 7.75 3Zm0 1.5A3.25 3.25 0 0 0 4.5 7.75v8.5a3.25 3.25 0 0 0 3.25 3.25h8.5a3.25 3.25 0 0 0 3.25-3.25v-8.5a3.25 3.25 0 0 0-3.25-3.25h-8.5Z"/>
+                    <path d="M12 7.25A4.75 4.75 0 1 1 7.25 12 4.76 4.76 0 0 1 12 7.25Zm0 1.5A3.25 3.25 0 1 0 15.25 12 3.26 3.26 0 0 0 12 8.75Zm5.1-2.05a.9.9 0 1 1-.9-.9.9.9 0 0 1 .9.9Z"/>
+                  </svg>
+                </a>
+                <a href="#" aria-label="Facebook">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M13.5 22v-8h2.75l.4-3H13.5V9.08c0-.87.24-1.47 1.49-1.47H16.8V5a21.25 21.25 0 0 0-2.24-.12c-2.22 0-3.74 1.35-3.74 3.83V11H8v3h2.82v8Z"/>
+                  </svg>
+                </a>
+                <a href="#" aria-label="YouTube">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21.5 7.8a2.75 2.75 0 0 0-1.94-1.95C18.13 5.5 12 5.5 12 5.5s-6.13 0-7.56.35A2.75 2.75 0 0 0 2.5 7.8 28.6 28.6 0 0 0 2.18 12a28.6 28.6 0 0 0 .32 4.2 2.75 2.75 0 0 0 1.94 1.95c1.43.35 7.56.35 7.56.35s6.13 0 7.56-.35a2.75 2.75 0 0 0 1.94-1.95 28.6 28.6 0 0 0 .32-4.2 28.6 28.6 0 0 0-.32-4.2ZM10.2 15.2V8.8L15.5 12l-5.3 3.2Z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="site-footer__bottom">
+            <span class="site-footer__rule" aria-hidden="true"></span>
+            <p class="site-footer__copyright">© 2026 Mateus Chaves Generoso. Todos os direitos reservados.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="./src/js/ui.js" defer></script>
+    <script src="./src/js/animations.js" defer></script>
+    <script src="./src/js/universe-carousel.js" defer></script>
+    <script src="./public/vendor/page-flip.browser.js" defer></script>
+    <script src="./src/js/reading-viewer.js" defer></script>
+    <script src="./src/js/offer-gallery.js" defer></script>
+    <script src="./src/js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,296 @@
+.author-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  scroll-margin-top: 4.25rem;
+  background:
+    radial-gradient(circle at 13% 18%, rgb(217 190 121 / 10%), transparent 26rem),
+    linear-gradient(90deg, rgb(252 250 246 / 98%), rgb(248 243 235 / 94%)),
+    var(--color-paper);
+  color: var(--color-wine);
+}
+
+.author-section::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 0;
+  width: min(28vw, 22rem);
+  background:
+    linear-gradient(90deg, rgb(252 250 246 / 72%), rgb(252 250 246 / 0%)),
+    url("../../../public/assets/hero/fundoHero.png");
+  background-position: left center;
+  background-size: cover;
+  content: "";
+  filter: sepia(0.24) saturate(0.72);
+  mask-image: linear-gradient(90deg, #000 0 52%, transparent 100%);
+  opacity: 0.13;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, #000 0 52%, transparent 100%);
+}
+
+.author-section__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-8);
+  padding-block: clamp(3rem, 8vw, 5rem);
+}
+
+.author-section__heading {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.author-section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-3);
+  color: var(--color-gold-ink);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.author-section__eyebrow::before,
+.author-section__eyebrow::after {
+  width: clamp(2.5rem, 13vw, 5.75rem);
+  height: 0.0625rem;
+  background: linear-gradient(90deg, transparent, rgb(178 139 67 / 66%));
+  content: "";
+}
+
+.author-section__eyebrow::after {
+  background: linear-gradient(90deg, rgb(178 139 67 / 66%), transparent);
+}
+
+.author-section h2 {
+  max-width: 11ch;
+  margin: 0;
+  color: var(--color-wine);
+  font-family: var(--font-title);
+  font-size: clamp(2.85rem, 12vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.author-section__lead {
+  max-width: 25rem;
+  margin: var(--space-3) 0 0;
+  color: var(--color-gold-ink);
+  font-family: var(--font-subtitle);
+  font-size: clamp(1rem, 4.2vw, 1.18rem);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+.author-section__media {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 18.75rem);
+  margin: 0 0 clamp(2.5rem, 11vw, 3.75rem);
+}
+
+.author-section__portrait,
+.author-section__family {
+  overflow: hidden;
+  border: 0.0625rem solid var(--color-border-strong);
+  background: var(--color-off-white);
+  box-shadow: 0 0.65rem 0.9rem rgb(49 17 23 / 12%);
+}
+
+.author-section__portrait {
+  aspect-ratio: 0.76;
+  border-radius: 0.75rem;
+}
+
+.author-section__portrait img,
+.author-section__family img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-section__portrait img {
+  object-position: 50% 22%;
+}
+
+.author-section__family {
+  position: absolute;
+  right: 50%;
+  bottom: -2.25rem;
+  width: min(72%, 15rem);
+  aspect-ratio: 1.48;
+  border-radius: 0.55rem;
+  transform: translateX(50%);
+}
+
+.author-section__family img {
+  object-position: 50% 30%;
+}
+
+.author-section__bio {
+  max-width: 42rem;
+}
+
+.author-section__bio-text {
+  display: grid;
+  gap: var(--space-4);
+  color: rgb(74 48 38 / 90%);
+  font-family: var(--font-subtitle);
+  font-size: clamp(0.98rem, 3.7vw, 1.05rem);
+  line-height: 1.78;
+  text-wrap: pretty;
+}
+
+.author-section__bio-text p {
+  margin: 0;
+}
+
+.author-section__bio-text strong {
+  color: var(--color-wine);
+}
+
+.author-section__bio-text--desktop {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .author-section__inner {
+    gap: clamp(2.5rem, 7vw, 5rem);
+  }
+
+  .author-section__media {
+    width: min(74vw, 25rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .author-section {
+    scroll-margin-top: 0;
+  }
+
+  .author-section__inner {
+    grid-template-columns: minmax(18rem, 0.78fr) minmax(30rem, 1.22fr);
+    grid-template-areas:
+      "media heading"
+      "media bio";
+    min-height: calc(100svh - 4.75rem);
+    align-content: center;
+    align-items: center;
+    column-gap: clamp(4rem, 8vw, 6.5rem);
+    row-gap: var(--space-6);
+    padding-block: clamp(3.5rem, 6vw, 5.25rem);
+  }
+
+  .author-section__heading {
+    grid-area: heading;
+    justify-items: start;
+    align-self: end;
+    text-align: left;
+  }
+
+  .author-section__eyebrow {
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .author-section__eyebrow::before {
+    display: none;
+  }
+
+  .author-section__eyebrow::after {
+    width: clamp(10rem, 26vw, 17.5rem);
+  }
+
+  .author-section h2 {
+    max-width: 13ch;
+    font-size: clamp(4rem, 5.8vw, 5.2rem);
+    line-height: 0.9;
+  }
+
+  .author-section__lead {
+    margin-top: var(--space-4);
+    font-size: clamp(1.08rem, 1.4vw, 1.25rem);
+  }
+
+  .author-section__media {
+    grid-area: media;
+    width: min(33vw, 25rem);
+    margin-bottom: clamp(2.75rem, 4vw, 3.5rem);
+  }
+
+  .author-section__portrait {
+    aspect-ratio: 0.64;
+  }
+
+  .author-section__portrait img {
+    object-position: 50% 30%;
+  }
+
+  .author-section__family {
+    right: -2.5rem;
+    bottom: -2.15rem;
+    width: min(62%, 14.25rem);
+    transform: none;
+  }
+
+  .author-section__bio {
+    grid-area: bio;
+    align-self: start;
+    max-width: 43rem;
+  }
+
+  .author-section__bio::before {
+    display: block;
+    width: 3.5rem;
+    height: 0.0625rem;
+    margin: 0 0 var(--space-6);
+    background: var(--color-gold);
+    content: "";
+  }
+
+  .author-section__bio-text {
+    gap: var(--space-4);
+    font-size: 0.96rem;
+    line-height: 1.78;
+  }
+
+  .author-section__bio-text--desktop {
+    display: grid;
+  }
+
+  .author-section__bio-text--mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 80rem) {
+  .author-section__inner {
+    grid-template-columns: minmax(20rem, 0.76fr) minmax(34rem, 1.24fr);
+  }
+
+  .author-section__media {
+    width: min(31vw, 26rem);
+  }
+}
+
+@media (max-width: 23.4375rem) {
+  .author-section h2 {
+    font-size: 2.45rem;
+  }
+
+  .author-section__lead {
+    font-size: 0.96rem;
+  }
+
+  .author-section__bio-text {
+    font-size: 0.94rem;
+  }
+}

@@ -1,0 +1,399 @@
+.offer-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  scroll-margin-top: 4.25rem;
+  background:
+    radial-gradient(circle at 80% 22%, rgb(217 190 121 / 14%), transparent 24rem),
+    linear-gradient(180deg, rgb(252 250 246 / 98%), rgb(248 243 235 / 100%)),
+    var(--color-paper);
+  color: var(--color-wine);
+}
+
+.offer-section::before {
+  position: absolute;
+  inset: 0 0 auto auto;
+  z-index: 0;
+  width: min(34vw, 27rem);
+  height: 100%;
+  background:
+    linear-gradient(270deg, rgb(252 250 246 / 54%), rgb(252 250 246 / 0%)),
+    url("../../../public/assets/hero/fundoHero.png");
+  background-position: right center;
+  background-size: cover;
+  content: "";
+  filter: sepia(0.18) saturate(0.72);
+  mask-image: linear-gradient(270deg, #000 0 48%, transparent 100%);
+  opacity: 0.11;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(270deg, #000 0 48%, transparent 100%);
+}
+
+.offer-section__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(2rem, 8vw, 4.5rem);
+  padding-block: clamp(2.75rem, 9vw, 5.25rem);
+}
+
+.offer-section__gallery {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+}
+
+.offer-section__main {
+  position: relative;
+  width: min(100%, 37.5rem);
+  margin: 0;
+  overflow: hidden;
+  border: 0.0625rem solid rgb(216 191 145 / 72%);
+  border-radius: 0.75rem;
+  background:
+    linear-gradient(180deg, rgb(252 250 246 / 46%), rgb(233 221 204 / 44%)),
+    var(--color-off-white);
+  box-shadow: 0 0.5rem 0.5rem rgb(49 17 23 / 8%);
+}
+
+.offer-section__main img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  opacity: 1;
+  transform: scale(1.18);
+  transform-origin: center;
+  transition:
+    opacity 180ms ease,
+    transform 260ms ease;
+}
+
+.offer-section__main img.is-switching {
+  opacity: 0.38;
+  transform: scale(1.15);
+}
+
+.offer-section__thumbs {
+  display: flex;
+  width: min(100%, 31.5rem);
+  gap: var(--space-3);
+  justify-content: center;
+  overflow-x: auto;
+  padding: var(--space-1) var(--space-1) var(--space-2);
+  scrollbar-width: thin;
+}
+
+.offer-section__thumb {
+  flex: 0 0 clamp(4.75rem, 18vw, 6.85rem);
+  aspect-ratio: 1.18;
+  overflow: hidden;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.5rem;
+  background: rgb(233 221 204 / 66%);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-base),
+    filter var(--transition-base),
+    transform var(--transition-base);
+}
+
+.offer-section__thumb:hover {
+  filter: saturate(1.04) contrast(1.02);
+  transform: translateY(-0.0625rem);
+}
+
+.offer-section__thumb[aria-current="true"] {
+  border-color: var(--color-gold);
+}
+
+.offer-section__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offer-section__content {
+  display: grid;
+  justify-items: start;
+  max-width: 31.25rem;
+  color: var(--color-wine);
+}
+
+.offer-section__eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--color-gold-ink);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.offer-section h2 {
+  max-width: 12ch;
+  margin: 0;
+  color: var(--color-wine-deep);
+  font-family: var(--font-title);
+  font-size: clamp(3rem, 13vw, 4.45rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.offer-section__copy {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 30rem;
+  margin: var(--space-5) 0 0;
+  color: rgb(74 48 38 / 90%);
+  font-family: var(--font-subtitle);
+  font-size: clamp(0.98rem, 3.5vw, 1.05rem);
+  line-height: 1.72;
+  text-wrap: pretty;
+}
+
+.offer-section__copy p {
+  margin: 0;
+}
+
+.offer-section__price {
+  display: grid;
+  grid-template-columns: minmax(7.75rem, 0.88fr) 0.0625rem minmax(11.75rem, 1.12fr);
+  gap: clamp(1rem, 4vw, 1.65rem);
+  align-items: stretch;
+  width: min(100%, 30rem);
+  margin: clamp(1.75rem, 5vw, 2.35rem) 0 var(--space-6);
+}
+
+.offer-section__price-rule {
+  width: 0.0625rem;
+  min-height: 4.25rem;
+  background: rgb(178 139 67 / 46%);
+}
+
+.offer-section__price-row {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+}
+
+.offer-section__price-label {
+  color: rgb(74 48 38 / 76%);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.offer-section__old-price,
+.offer-section__current-price {
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.9;
+  white-space: nowrap;
+}
+
+.offer-section__old-price {
+  color: rgb(49 17 23 / 78%);
+  font-size: clamp(2.1rem, 8.4vw, 3rem);
+  text-decoration: line-through;
+  text-decoration-thickness: 0.0625rem;
+  text-decoration-color: rgb(49 17 23 / 76%);
+}
+
+.offer-section__current-price {
+  color: var(--color-wine-cta);
+  font-size: clamp(3rem, 10.8vw, 4.15rem);
+}
+
+.offer-section__deadline {
+  display: flex;
+  width: min(100%, 29rem);
+  align-items: center;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-5);
+  color: rgb(74 48 38 / 82%);
+  font-family: var(--font-subtitle);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.offer-section__deadline::before,
+.offer-section__deadline::after {
+  flex: 1 1 3rem;
+  height: 0.0625rem;
+  background: rgb(178 139 67 / 52%);
+  content: "";
+}
+
+.offer-section__cta {
+  width: min(100%, 23rem);
+  min-height: 3.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.offer-section__microcopy {
+  max-width: 23rem;
+  margin: var(--space-3) 0 0;
+  color: rgb(74 48 38 / 72%);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+@media (min-width: 48rem) {
+  .offer-section__inner {
+    gap: clamp(2.5rem, 6vw, 4.75rem);
+  }
+
+  .offer-section__main {
+    width: min(88vw, 39rem);
+  }
+
+  .offer-section__deadline {
+    white-space: nowrap;
+  }
+
+  .offer-section__deadline::before,
+  .offer-section__deadline::after {
+    min-width: 1.75rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .offer-section {
+    scroll-margin-top: 0;
+  }
+
+  .offer-section__inner {
+    grid-template-columns: minmax(29rem, 1.08fr) minmax(25rem, 0.92fr);
+    min-height: calc(100svh - 4.75rem);
+    align-items: center;
+    column-gap: clamp(3.25rem, 6.4vw, 6rem);
+    padding-block: clamp(3.25rem, 5vw, 4.75rem);
+  }
+
+  .offer-section__gallery {
+    justify-self: start;
+    width: 100%;
+  }
+
+  .offer-section__main {
+    width: min(100%, 39.5rem);
+  }
+
+  .offer-section__content {
+    justify-self: start;
+    max-width: 31rem;
+  }
+
+  .offer-section h2 {
+    font-size: clamp(4.05rem, 5.2vw, 5rem);
+  }
+
+  .offer-section__copy {
+    margin-top: var(--space-5);
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .offer-section__inner {
+    grid-template-columns: minmax(34rem, 1.12fr) minmax(28rem, 0.88fr);
+  }
+
+  .offer-section__main {
+    width: min(46vw, 41.5rem);
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .offer-section::before {
+    width: 68vw;
+    opacity: 0.08;
+  }
+
+  .offer-section__inner {
+    gap: var(--space-6);
+    padding-block: clamp(2.25rem, 8vw, 3.35rem);
+  }
+
+  .offer-section__content {
+    justify-self: center;
+    width: min(100%, 31rem);
+  }
+
+  .offer-section h2 {
+    font-size: clamp(2.35rem, 10.4vw, 2.9rem);
+    line-height: 0.96;
+  }
+
+  .offer-section__copy {
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    font-size: 0.94rem;
+    line-height: 1.62;
+  }
+
+  .offer-section__thumb {
+    flex-basis: clamp(4rem, 18vw, 4.65rem);
+  }
+
+  .offer-section__price {
+    grid-template-columns: minmax(6.35rem, 0.86fr) 0.0625rem minmax(9rem, 1.14fr);
+    gap: var(--space-3);
+    margin-block: var(--space-5);
+  }
+
+  .offer-section__price-rule {
+    width: 0.0625rem;
+    min-height: 3.55rem;
+    height: auto;
+  }
+
+  .offer-section__price-row {
+    justify-items: start;
+  }
+
+  .offer-section__old-price {
+    font-size: clamp(1.75rem, 8vw, 2.1rem);
+  }
+
+  .offer-section__current-price {
+    font-size: clamp(2.35rem, 10.4vw, 3rem);
+  }
+
+  .offer-section__cta {
+    width: 100%;
+  }
+
+  .offer-section__microcopy {
+    justify-self: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 23.4375rem) {
+  .offer-section h2 {
+    font-size: 2.28rem;
+  }
+
+  .offer-section__current-price {
+    font-size: 2.35rem;
+  }
+
+  .offer-section__old-price {
+    font-size: 1.72rem;
+  }
+}

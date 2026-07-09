@@ -1,0 +1,13 @@
+{
+  "name": "o-trono-das-decisoes-landing",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Landing page estática da pré-venda do livro O Trono das Decisões.",
+  "scripts": {
+    "dev": "python3 -m http.server 5173",
+    "start": "python3 -m http.server 5173"
+  },
+  "dependencies": {
+    "page-flip": "^2.0.7"
+  }
+}

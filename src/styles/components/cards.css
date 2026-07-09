@@ -1,0 +1,6 @@
+.editorial-card {
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-off-white);
+  box-shadow: var(--shadow-soft);
+}
