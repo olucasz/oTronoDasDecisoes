@@ -3,6 +3,7 @@
   isolation: isolate;
   overflow: hidden;
   scroll-margin-top: 0;
+  --reading-book-height: 30rem;
   background:
     linear-gradient(90deg, rgb(252 250 246 / 97%), rgb(248 243 235 / 92%)),
     var(--color-paper);
@@ -36,13 +37,21 @@
 }
 
 .reading-section__content {
+  display: flex;
+  flex-direction: column;
   align-self: center;
-  max-width: 24rem;
+  max-width: 25rem;
+}
+
+.reading-section__intro {
+  display: grid;
+  gap: 0;
 }
 
 .reading-section__eyebrow {
-  position: relative;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
   width: fit-content;
   margin: 0 0 var(--space-4);
   color: var(--color-gold-ink);
@@ -55,13 +64,10 @@
   text-transform: uppercase;
 }
 
-.reading-section__eyebrow::after {
-  position: absolute;
-  top: calc(100% + 0.55rem);
-  left: 0;
-  width: 6.5rem;
+.reading-section__eyebrow::before {
+  width: 2rem;
   height: 0.0625rem;
-  background: linear-gradient(90deg, transparent, rgb(178 139 67 / 70%), transparent);
+  background: currentColor;
   content: "";
 }
 
@@ -90,7 +96,7 @@
 .reading-section__copy {
   display: grid;
   gap: var(--space-3);
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
   color: var(--color-prose);
   font-size: var(--copy-size);
   line-height: var(--copy-line-height);
@@ -103,14 +109,25 @@
 
 .reading-section__copy strong,
 .reading-section__question {
-  color: var(--color-wine);
   font-weight: 700;
 }
 
+.reading-section__copy strong {
+  color: var(--color-wine);
+}
+
 .reading-section__question {
+  color: var(--color-gold-ink);
   font-family: var(--font-subtitle);
-  font-size: clamp(1rem, 2vw, 1.08rem);
-  line-height: 1.42;
+  font-size: clamp(1.08rem, 2.1vw, 1.22rem);
+  line-height: 1.4;
+}
+
+.reading-section__hint {
+  color: var(--color-prose-soft);
+  font-size: 0.92rem;
+  line-height: 1.56;
+  opacity: 0.88;
 }
 
 .reading-section__notes {
@@ -176,7 +193,7 @@
   z-index: 1;
   width: 100%;
   max-width: 56rem;
-  min-height: 30rem;
+  min-height: var(--reading-book-height);
   margin-inline: auto;
 }
 
@@ -296,7 +313,7 @@
   width: max-content;
   max-width: 100%;
   min-width: min(100%, 18.25rem);
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
   white-space: nowrap;
 }
 
@@ -308,35 +325,64 @@
 }
 
 @media (min-width: 64rem) {
+  .reading-section {
+    --reading-book-height: 36rem;
+  }
+
   .reading-section__inner {
-    grid-template-columns: minmax(18rem, 0.68fr) minmax(39rem, 1.32fr);
+    grid-template-columns: minmax(20rem, 0.78fr) minmax(38rem, 1.22fr);
     min-height: min(50rem, calc(100svh - 4.75rem));
-    align-items: center;
+    align-items: start;
     column-gap: clamp(2.5rem, 5vw, 4.5rem);
     padding-block: clamp(2.5rem, 4.7vw, 3.75rem);
   }
 
+  .reading-section__content {
+    align-self: start;
+    justify-content: flex-start;
+    min-height: var(--reading-book-height);
+    padding-block: clamp(1rem, 2vw, 1.5rem) clamp(0.35rem, 0.9vw, 0.75rem);
+  }
+
+  .reading-section__viewer {
+    align-self: start;
+    padding-block: clamp(0.25rem, 1vw, 0.75rem);
+  }
+
   .reading-section h2 {
-    font-size: clamp(3.1rem, 4.5vw, 4rem);
-    max-width: 20rem;
+    font-size: clamp(3rem, 4.25vw, 3.85rem);
+    max-width: 21rem;
   }
 
   .reading-section__copy {
-    max-width: 22rem;
+    max-width: 24rem;
+    gap: var(--space-4);
     font-size: 0.95rem;
   }
 
+  .reading-section__intro {
+    gap: clamp(0.9rem, 1.8vw, 1.25rem);
+  }
+
+  .reading-section__cta {
+    margin-top: clamp(1.1rem, 2vw, 1.5rem);
+  }
+
   .reading-book-shell {
-    width: min(100%, 56rem);
+    width: min(100%, 57rem);
   }
 
   .reading-book {
-    max-width: 56rem;
-    min-height: 35rem;
+    max-width: 57rem;
+    min-height: var(--reading-book-height);
   }
 }
 
 @media (min-width: 80rem) {
+  .reading-section {
+    --reading-book-height: 37rem;
+  }
+
   .reading-section__inner {
     grid-template-columns: minmax(19rem, 0.64fr) minmax(42rem, 1.36fr);
   }
@@ -347,7 +393,7 @@
 
   .reading-book {
     max-width: 60rem;
-    min-height: 37rem;
+    min-height: var(--reading-book-height);
   }
 }
 
@@ -376,10 +422,8 @@
     text-align: left;
   }
 
-  .reading-section__eyebrow::after {
-    left: 0;
-    width: clamp(4.25rem, 24vw, 6.5rem);
-    transform: none;
+  .reading-section__eyebrow::before {
+    width: clamp(1.75rem, 18vw, 2rem);
   }
 
   .reading-section h2 {
@@ -402,8 +446,12 @@
   }
 
   .reading-section__question {
-    font-size: 0.98rem;
-    line-height: 1.38;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .reading-section__hint {
+    font-size: 0.9rem;
   }
 
   .reading-section__notes {
@@ -459,8 +507,16 @@
 }
 
 @media (min-width: 64rem) and (max-height: 48rem) {
+  .reading-section {
+    --reading-book-height: 31rem;
+  }
+
   .reading-section__inner {
     padding-block: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .reading-section__content {
+    min-height: var(--reading-book-height);
   }
 
   .reading-section h2 {
@@ -479,7 +535,7 @@
   }
 
   .reading-book {
-    min-height: 31rem;
+    min-height: var(--reading-book-height);
   }
 }
 

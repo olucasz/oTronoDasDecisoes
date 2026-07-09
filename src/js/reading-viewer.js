@@ -1,15 +1,15 @@
 (function () {
   const pages = [
     {
-      src: "./public/assets/reading/reading-page-01.webp",
-      label: "Introdução",
-    },
-    {
-      src: "./public/assets/reading/reading-page-02.webp",
+      src: "./reading/img1-sumario.png",
       label: "Sumário",
     },
     {
-      src: "./public/assets/reading/reading-page-03.webp",
+      src: "./reading/intro.png",
+      label: "Introdução",
+    },
+    {
+      src: "./reading/cap1.png",
       label: "Capítulo 1",
     },
   ];
