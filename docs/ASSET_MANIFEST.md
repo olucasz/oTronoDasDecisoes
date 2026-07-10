@@ -39,9 +39,10 @@
 
 ## Leitura Interativa
 
-- `public/assets/reading/reading-page-01.webp` — pagina de introducao convertida de `reading/intro.png`.
-- `public/assets/reading/reading-page-02.webp` — pagina de sumario convertida de `reading/img1-sumario.png`.
-- `public/assets/reading/reading-page-03.webp` — pagina do capitulo 1 convertida de `reading/cap1.png`.
+- `public/assets/reading/reading-trono.png` — pagina Trono em alta qualidade, copiada de `reading/trono.png`.
+- `public/assets/reading/reading-intro.png` — pagina de introducao em alta qualidade, copiada de `reading/intro.png`.
+- `public/assets/reading/reading-cap1.png` — pagina do capitulo 1 em alta qualidade, copiada de `reading/cap1.png`.
+- `public/assets/reading/reading-o-trono-das-decisoes.png` — pagina O Trono das Decisoes em alta qualidade, copiada do PNG final recebido na pasta `reading/`.
 - `public/vendor/page-flip.browser.js` — bundle UMD local da biblioteca `page-flip`, usado pela Section 3 sem depender de CDN.
 - `reading/refSection3.png` — referencia visual recebida para layout da Section 3, mantida fora de `public` por nao ser asset de producao.
 

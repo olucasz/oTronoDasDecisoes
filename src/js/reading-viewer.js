@@ -1,16 +1,20 @@
 (function () {
   const pages = [
     {
-      src: "./reading/img1-sumario.png",
+      src: "reading/img1-sumario.png",
       label: "Sumário",
     },
     {
-      src: "./reading/intro.png",
+      src: "./public/assets/reading/reading-o-trono-das-decisoes.png",
       label: "Introdução",
     },
     {
-      src: "./reading/cap1.png",
+      src: "./public/assets/reading/reading-cap1.png",
       label: "Capítulo 1",
+    },
+    {
+      src: "reading/trono.png",
+      label: "O Trono das Decisões",
     },
   ];
 
@@ -41,7 +45,10 @@
       const dot = document.createElement("button");
       dot.className = "reading-dot";
       dot.type = "button";
-      dot.setAttribute("aria-label", `Mostrar página ${index + 1}: ${page.label}`);
+      dot.setAttribute(
+        "aria-label",
+        `Mostrar página ${index + 1}: ${page.label}`,
+      );
       dot.addEventListener("click", () => goToPage(index));
       dotsContainer.append(dot);
       return dot;
@@ -51,7 +58,10 @@
       currentPage = clampPage(index);
 
       dots.forEach((dot, dotIndex) => {
-        dot.setAttribute("aria-current", dotIndex === currentPage ? "true" : "false");
+        dot.setAttribute(
+          "aria-current",
+          dotIndex === currentPage ? "true" : "false",
+        );
       });
 
       previousButton.disabled = currentPage === 0;
@@ -111,7 +121,8 @@
       pageFlip.loadFromImages(pages.map((page) => page.src));
       pageFlip.on("flip", (event) => setCurrentPage(Number(event.data) || 0));
       pageFlip.on("init", (event) => {
-        const initialPage = event && event.data ? Number(event.data.page) || 0 : 0;
+        const initialPage =
+          event && event.data ? Number(event.data.page) || 0 : 0;
         setCurrentPage(initialPage);
       });
     } catch (error) {

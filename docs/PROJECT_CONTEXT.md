@@ -55,8 +55,8 @@ Landing page de pre-venda do livro **O Trono das Decisões**, de **Mateus Chaves
   - A ordem visual inicial do carrossel e: Cuco, Rei, Bobo, Trono, Mordomo, Guardas, Reino.
   - O item ativo inicial e `trono.png`.
 - Leitura interativa: `public/assets/reading/`.
-  - Paginas reais do trecho convertidas para WebP a partir da pasta raiz `reading/`.
-  - Arquivos atuais: `reading-page-01.webp`, `reading-page-02.webp` e `reading-page-03.webp`.
+  - Paginas reais do trecho em PNG de alta qualidade a partir da pasta raiz `reading/`.
+  - Arquivos atuais, na ordem do leitor: `reading-trono.png`, `reading-intro.png`, `reading-cap1.png` e `reading-o-trono-das-decisoes.png`.
   - A secao usa `page-flip` para folhear as paginas por imagem, com fallback horizontal por swipe caso a biblioteca nao carregue.
 - Autor: `public/assets/author/`.
   - `autor.jpg` e usado como retrato principal na secao Sobre o autor.
