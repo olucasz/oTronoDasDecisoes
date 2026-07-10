@@ -26,7 +26,7 @@
         <a href="#universo-do-livro">Sobre o livro</a>
         <a href="#sobre-o-autor">Sobre o autor</a>
         <a href="#trecho">Ler trecho</a>
-        <a class="button button--small button--primary site-nav__cta" href="#pre-venda-oferta">
+        <a class="button button--small button--primary site-nav__cta" href="#pre-venda-oferta" data-preorder-trigger>
           Garantir meu exemplar
         </a>
       </nav>
@@ -63,7 +63,7 @@
           </p>
 
           <div class="hero__actions" aria-label="Ações da pré-venda">
-            <a class="button button--primary" href="#pre-venda-oferta">Garantir meu exemplar</a>
+            <a class="button button--primary" href="#pre-venda-oferta" data-preorder-trigger>Garantir meu exemplar</a>
             <a class="button button--secondary" href="#trecho">Ler um trecho</a>
           </div>
 
@@ -178,7 +178,7 @@
               </p>
             </div>
           </div>
-          <a class="button button--primary reading-section__cta" href="#pre-venda-oferta">
+          <a class="button button--primary reading-section__cta" href="#pre-venda-oferta" data-preorder-trigger>
             Quero garantir meu exemplar
           </a>
           <ul class="reading-section__notes" aria-label="Detalhes do trecho">
@@ -326,7 +326,7 @@
             <p class="offer-section__deadline">
               Pré-venda disponível entre os dias 10 e 15.
             </p>
-            <a class="button button--primary offer-section__cta" href="#">
+            <a class="button button--primary offer-section__cta" href="#pre-venda-oferta" data-preorder-trigger>
               Comprar na pré-venda
             </a>
             <p class="offer-section__microcopy">
@@ -389,7 +389,7 @@
           <nav class="site-footer__quick-links" aria-label="Links rápidos do rodapé">
             <p class="site-footer__column-title">Links rápidos</p>
             <div class="site-footer__links">
-              <a href="#pre-venda-oferta">Comprar</a>
+              <a href="#pre-venda-oferta" data-preorder-trigger>Comprar</a>
               <a href="#trecho">Ler trecho</a>
               <a href="#sobre-o-autor">Sobre o autor</a>
               <a href="#">Contato</a>
@@ -427,12 +427,251 @@
     </footer>
   </main>
 
+  <div class="preorder-modal" data-preorder-modal hidden>
+    <div class="preorder-modal__overlay" data-preorder-overlay></div>
+
+    <div class="preorder-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="preorder-title" aria-describedby="preorder-description">
+      <aside class="preorder-modal__visual" aria-label="Pré-venda oficial de O Trono das Decisões">
+        <div class="preorder-modal__visual-bg" aria-hidden="true"></div>
+        <div class="preorder-modal__visual-content">
+          <img class="preorder-modal__visual-logo" src="./public/assets/logo/logo.png" width="1246" height="923" alt="O Trono das Decisões" />
+          <!-- <p class="preorder-modal__visual-kicker">Pré-venda oficial</p> -->
+          <!-- <figure class="preorder-modal__book">
+            <img src="./public/assets/hero/fundo-livroHero.png" width="1672" height="941" loading="lazy" decoding="async" alt="Livro O Trono das Decisões em uma sala clássica" />
+          </figure> -->
+          <!-- <p class="preorder-modal__visual-note">Livro físico com compra segura pelo Mercado Pago.</p> -->
+        </div>
+      </aside>
+
+      <form class="preorder-modal__panel" data-preorder-form novalidate>
+        <div class="preorder-modal__panel-top">
+          <button class="preorder-modal__icon-button preorder-modal__back is-hidden" type="button" data-preorder-back aria-label="Voltar para o passo 1" aria-hidden="true" tabindex="-1">
+            <svg viewBox="0 0 24 24" width="20" height="20" role="presentation" focusable="false" aria-hidden="true">
+              <path d="M15 18 9 12l6-6"></path>
+            </svg>
+          </button>
+
+          <div class="preorder-modal__progress-wrap">
+            <p class="preorder-modal__step-label" data-preorder-step-label>Passo 1 de 2</p>
+            <div class="preorder-modal__progress" aria-hidden="true">
+              <span class="preorder-modal__progress-dot is-active" data-preorder-progress-dot="1"></span>
+              <span class="preorder-modal__progress-line"></span>
+              <span class="preorder-modal__progress-dot" data-preorder-progress-dot="2"></span>
+            </div>
+          </div>
+
+          <button class="preorder-modal__icon-button preorder-modal__close" type="button" data-preorder-close aria-label="Fechar modal de pré-venda">
+            <svg viewBox="0 0 24 24" width="20" height="20" role="presentation" focusable="false" aria-hidden="true">
+              <path d="m6 6 12 12M18 6 6 18"></path>
+            </svg>
+          </button>
+        </div>
+
+        <img class="preorder-modal__mobile-logo" src="./public/assets/logo/logo.png" width="1246" height="923" alt="O Trono das Decisões" />
+
+        <section class="preorder-modal__step is-active" data-preorder-step="1" aria-labelledby="preorder-title">
+          <header class="preorder-modal__header">
+            <h2 id="preorder-title">Seus dados e entrega</h2>
+            <p id="preorder-description">Preencha seus dados para continuar sua pré-venda.</p>
+          </header>
+
+          <div class="preorder-modal__fields">
+            <div class="preorder-field">
+              <label for="preorder-full-name">Nome completo</label>
+              <input id="preorder-full-name" name="fullName" type="text" autocomplete="name" placeholder="Digite seu nome completo" data-preorder-field="fullName" />
+              <p class="preorder-field__error" id="preorder-full-name-error" data-preorder-error="fullName"></p>
+            </div>
+
+            <div class="preorder-field">
+              <label for="preorder-phone">WhatsApp / Celular</label>
+              <input id="preorder-phone" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" data-preorder-field="whatsapp" />
+              <p class="preorder-field__error" id="preorder-phone-error" data-preorder-error="whatsapp"></p>
+            </div>
+
+            <fieldset class="preorder-shipping" data-preorder-shipping>
+              <legend>Forma de envio</legend>
+
+              <label class="preorder-shipping__option">
+                <input class="sr-only" type="radio" name="deliveryMethod" value="julho" data-preorder-field="deliveryMethod" />
+                <span class="preorder-shipping__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" role="presentation" focusable="false">
+                    <path d="M4 21h16M6 21V10l6-4 6 4v11M9 21v-6h6v6M3 11l9-6 9 6"></path>
+                  </svg>
+                </span>
+                <span class="preorder-shipping__copy">
+                  <strong>Retirar no Julho para Jesus</strong>
+                  <small>Sem custo de frete</small>
+                </span>
+                <span class="preorder-shipping__radio" aria-hidden="true"></span>
+              </label>
+
+              <label class="preorder-shipping__option">
+                <input class="sr-only" type="radio" name="deliveryMethod" value="casa" data-preorder-field="deliveryMethod" />
+                <span class="preorder-shipping__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" role="presentation" focusable="false">
+                    <path d="M3 7h11v9H3zM14 10h4l3 3v3h-7zM6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+                  </svg>
+                </span>
+                <span class="preorder-shipping__copy">
+                  <strong>Receber em casa</strong>
+                  <small>Com frete</small>
+                </span>
+                <span class="preorder-shipping__radio" aria-hidden="true"></span>
+              </label>
+
+              <label class="preorder-shipping__option">
+                <input class="sr-only" type="radio" name="deliveryMethod" value="autor" data-preorder-field="deliveryMethod" />
+                <span class="preorder-shipping__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" role="presentation" focusable="false">
+                    <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4.5 21a7.5 7.5 0 0 1 15 0"></path>
+                  </svg>
+                </span>
+                <span class="preorder-shipping__copy">
+                  <strong>Retirar com o autor</strong>
+                  <small>Sem custo de frete</small>
+                </span>
+                <span class="preorder-shipping__radio" aria-hidden="true"></span>
+              </label>
+
+              <p class="preorder-field__error" id="preorder-delivery-error" data-preorder-error="deliveryMethod"></p>
+            </fieldset>
+
+            <div class="preorder-address" data-preorder-address aria-hidden="true">
+              <div class="preorder-address__inner">
+                <div class="preorder-field preorder-field--compact">
+                  <label for="preorder-cep">CEP</label>
+                  <input id="preorder-cep" name="cep" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" data-preorder-field="cep" disabled />
+                  <p class="preorder-field__error" id="preorder-cep-error" data-preorder-error="cep"></p>
+                </div>
+
+                <div class="preorder-field preorder-field--compact preorder-field--street">
+                  <label for="preorder-street">Rua / número / bairro</label>
+                  <input id="preorder-street" name="street" type="text" autocomplete="street-address" placeholder="Rua das Flores, 123, Centro" data-preorder-field="street" disabled />
+                  <p class="preorder-field__error" id="preorder-street-error" data-preorder-error="street"></p>
+                </div>
+
+                <div class="preorder-field preorder-field--compact">
+                  <label for="preorder-city">Cidade</label>
+                  <input id="preorder-city" name="city" type="text" autocomplete="address-level2" placeholder="Cidade" data-preorder-field="city" disabled />
+                  <p class="preorder-field__error" id="preorder-city-error" data-preorder-error="city"></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <label class="preorder-consent">
+            <input type="checkbox" name="authorization" data-preorder-field="authorization" />
+            <span class="preorder-consent__box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" role="presentation" focusable="false">
+                <path d="m5 12 4 4 10-10"></path>
+              </svg>
+            </span>
+            <span>Autorizo o contato pelo WhatsApp para confirmação da pré-venda e entrega.</span>
+          </label>
+          <p class="preorder-field__error preorder-field__error--consent" id="preorder-authorization-error" data-preorder-error="authorization"></p>
+
+          <button class="preorder-modal__primary" type="button" data-preorder-continue>
+            <span>Continuar para o passo 2</span>
+            <svg viewBox="0 0 24 24" width="22" height="22" role="presentation" focusable="false" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
+            </svg>
+          </button>
+        </section>
+
+        <section class="preorder-modal__step" data-preorder-step="2" aria-labelledby="preorder-confirm-title" hidden>
+          <header class="preorder-modal__header preorder-modal__header--center">
+            <h2 id="preorder-confirm-title">Confirme seus dados</h2>
+            <p>Confira suas informações e finalize sua pré-venda.</p>
+          </header>
+
+          <div class="preorder-summary" aria-label="Resumo dos dados da pré-venda">
+            <div class="preorder-summary__row">
+              <span class="preorder-summary__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" role="presentation" focusable="false">
+                  <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4.5 21a7.5 7.5 0 0 1 15 0"></path>
+                </svg>
+              </span>
+              <div>
+                <span>Nome</span>
+                <strong data-preorder-summary="fullName"></strong>
+              </div>
+            </div>
+
+            <div class="preorder-summary__row">
+              <span class="preorder-summary__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" role="presentation" focusable="false">
+                  <path d="M7 4h10l1 3-1 13H7L6 7l1-3ZM9 7h6M10 17h4"></path>
+                </svg>
+              </span>
+              <div>
+                <span>WhatsApp</span>
+                <strong data-preorder-summary="whatsapp"></strong>
+              </div>
+            </div>
+
+            <div class="preorder-summary__row">
+              <span class="preorder-summary__icon preorder-summary__icon--accent" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" role="presentation" focusable="false">
+                  <path d="M3 7h11v9H3zM14 10h4l3 3v3h-7zM6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+                </svg>
+              </span>
+              <div>
+                <span>Forma de envio</span>
+                <strong data-preorder-summary="deliveryMethod"></strong>
+              </div>
+            </div>
+
+            <div class="preorder-summary__row" data-preorder-summary-address-row hidden>
+              <span class="preorder-summary__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" role="presentation" focusable="false">
+                  <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11ZM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+                </svg>
+              </span>
+              <div>
+                <span>Endereço</span>
+                <strong data-preorder-summary="address"></strong>
+              </div>
+            </div>
+          </div>
+
+          <p class="preorder-modal__notice">
+            <svg viewBox="0 0 24 24" width="20" height="20" role="presentation" focusable="false" aria-hidden="true">
+              <path d="M12 8v5M12 16.5v.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+            </svg>
+            <span>Você será direcionado para o Mercado Pago para finalizar sua compra com segurança.</span>
+          </p>
+
+          <p class="preorder-modal__submit-error" data-preorder-submit-error role="alert" hidden>
+            Não foi possível registrar seus dados agora. Tente novamente em alguns instantes ou entre em contato pelo WhatsApp.
+          </p>
+
+          <button class="preorder-modal__primary preorder-modal__primary--payment" type="submit" data-preorder-payment>
+            <svg viewBox="0 0 24 24" width="22" height="22" role="presentation" focusable="false" aria-hidden="true">
+              <rect x="5" y="10" width="14" height="10" rx="1.5"></rect>
+              <path d="M8 10V7.5a4 4 0 0 1 8 0V10"></path>
+            </svg>
+            <span>Ir para pagamento seguro</span>
+          </button>
+
+          <p class="preorder-modal__secure">
+            <svg viewBox="0 0 24 24" width="17" height="17" role="presentation" focusable="false" aria-hidden="true">
+              <path d="M12 3 5 6v5c0 4.5 2.9 8.3 7 10 4.1-1.7 7-5.5 7-10V6l-7-3ZM9 12l2 2 4-5"></path>
+            </svg>
+            <span>Ambiente seguro do Mercado Pago</span>
+          </p>
+        </section>
+      </form>
+    </div>
+  </div>
+
   <script src="./src/js/ui.js" defer></script>
   <script src="./src/js/animations.js" defer></script>
   <script src="./src/js/universe-carousel.js" defer></script>
   <script src="./public/vendor/page-flip.browser.js" defer></script>
   <script src="./src/js/reading-viewer.js" defer></script>
   <script src="./src/js/offer-gallery.js" defer></script>
+  <script src="./src/js/preorder-modal.js" defer></script>
   <script src="./src/js/main.js" defer></script>
 </body>
 

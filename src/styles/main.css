@@ -4,6 +4,7 @@
 @import "./components/buttons.css";
 @import "./components/header.css";
 @import "./components/cards.css";
+@import "./components/preorder-modal.css";
 @import "./sections/hero.css";
 @import "./sections/universe.css";
 @import "./sections/reading.css";
