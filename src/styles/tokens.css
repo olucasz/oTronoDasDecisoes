@@ -83,7 +83,7 @@
 
 @font-face {
   font-family: "Taken by Vultures";
-  src: url("../../public/assets/fonts/Taken by Vultures Demo.otf") format("opentype");
+  src: url("../../public/assets/fonts/Taken by Vultures Demo.otf?v=20260710-hq") format("opentype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;

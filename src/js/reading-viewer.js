@@ -1,20 +1,22 @@
 (function () {
-  const PAGE_FLIP_SCRIPT_SRC = "./public/vendor/page-flip.browser.js";
+  const ASSET_VERSION = "20260710-hq";
+  const withAssetVersion = (src) => `${src}?v=${ASSET_VERSION}`;
+  const PAGE_FLIP_SCRIPT_SRC = withAssetVersion("./public/vendor/page-flip.browser.js");
   const pages = [
     {
-      src: "./public/assets/reading/reading-trono.png",
+      src: withAssetVersion("./public/assets/reading/reading-trono-hq.png"),
       label: "Trono",
     },
     {
-      src: "./public/assets/reading/reading-intro.png",
+      src: withAssetVersion("./public/assets/reading/reading-intro-hq.png"),
       label: "Introdução",
     },
     {
-      src: "./public/assets/reading/reading-cap1.png",
+      src: withAssetVersion("./public/assets/reading/reading-cap1-hq.png"),
       label: "Capítulo 1",
     },
     {
-      src: "./public/assets/reading/reading-o-trono-das-decisoes.png",
+      src: withAssetVersion("./public/assets/reading/reading-o-trono-das-decisoes-hq.png"),
       label: "O Trono das Decisões",
     },
   ];
@@ -23,6 +25,25 @@
 
   function clampPage(index) {
     return Math.max(0, Math.min(index, pages.length - 1));
+  }
+
+  function createPageElements() {
+    return pages.map((page) => {
+      const pageElement = document.createElement("article");
+      const image = document.createElement("img");
+
+      pageElement.className = "reading-page";
+      image.src = page.src;
+      image.width = 1772;
+      image.height = 2480;
+      image.loading = "eager";
+      image.decoding = "async";
+      image.alt = `Página ${page.label} do livro O Trono das Decisões`;
+
+      pageElement.append(image);
+
+      return pageElement;
+    });
   }
 
   function loadPageFlipScript() {
@@ -145,7 +166,7 @@
           usePortrait: true,
         });
 
-        pageFlip.loadFromImages(pages.map((page) => page.src));
+        pageFlip.loadFromHTML(createPageElements());
         pageFlip.on("flip", (event) => setCurrentPage(Number(event.data) || 0));
         pageFlip.on("init", (event) => {
           const initialPage =

@@ -51,10 +51,10 @@ public/assets/reading/
 Estrutura esperada:
 
 ```txt
-public/assets/reading/reading-trono.png
-public/assets/reading/reading-intro.png
-public/assets/reading/reading-cap1.png
-public/assets/reading/reading-o-trono-das-decisoes.png
+public/assets/reading/reading-trono-hq.png
+public/assets/reading/reading-intro-hq.png
+public/assets/reading/reading-cap1-hq.png
+public/assets/reading/reading-o-trono-das-decisoes-hq.png
 ```
 
 Essas imagens serão as páginas do flipbook.

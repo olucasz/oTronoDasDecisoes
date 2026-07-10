@@ -75,7 +75,7 @@ body.preorder-modal-open {
       rgb(252 250 246 / 0%) 0%,
       rgb(252 250 246 /30%) 0%
     ),
-    url("../../../public/assets/hero/fundo-livroHero.png");
+    url("../../../public/assets/hero/fundo-livroHero-hq.png?v=20260710-hq");
   background-position: 78% center;
   background-size: cover;
   filter: saturate(0.9) sepia(0.02);
