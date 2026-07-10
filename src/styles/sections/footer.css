@@ -3,7 +3,11 @@
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 18%, rgb(217 190 121 / 10%), transparent 22rem),
+    radial-gradient(
+      circle at 18% 18%,
+      rgb(217 190 121 / 10%),
+      transparent 22rem
+    ),
     linear-gradient(180deg, rgb(252 250 246 / 98%), rgb(248 243 235 / 96%)),
     var(--color-paper);
   color: var(--color-wine);
@@ -30,8 +34,17 @@
 
 .site-footer::after {
   background:
-    radial-gradient(circle at 50% 16%, rgb(217 190 121 / 14%), transparent 22rem),
-    linear-gradient(90deg, rgb(252 250 246 / 78%), rgb(252 250 246 / 44%) 50%, rgb(252 250 246 / 78%));
+    radial-gradient(
+      circle at 50% 16%,
+      rgb(217 190 121 / 14%),
+      transparent 22rem
+    ),
+    linear-gradient(
+      90deg,
+      rgb(252 250 246 / 78%),
+      rgb(252 250 246 / 44%) 50%,
+      rgb(252 250 246 / 78%)
+    );
 }
 
 .site-footer__inner {
@@ -92,7 +105,7 @@
   width: fit-content;
   color: var(--color-prose);
   font-family: var(--font-body);
-  font-size: 0.94rem;
+  font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.4;
   transition: color var(--transition-base);
@@ -150,7 +163,12 @@
 .site-footer__rule {
   width: 100%;
   height: 0.0625rem;
-  background: linear-gradient(90deg, transparent, rgb(178 139 67 / 68%) 50%, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(178 139 67 / 68%) 50%,
+    transparent
+  );
 }
 
 .site-footer__copyright {
@@ -166,7 +184,10 @@
 
 @media (min-width: 48rem) {
   .site-footer__grid {
-    grid-template-columns: minmax(14rem, 0.95fr) minmax(11rem, 0.7fr) minmax(8rem, 0.55fr);
+    grid-template-columns: minmax(14rem, 0.95fr) minmax(11rem, 0.7fr) minmax(
+        8rem,
+        0.55fr
+      );
     align-items: start;
     column-gap: clamp(2rem, 4vw, 4rem);
   }

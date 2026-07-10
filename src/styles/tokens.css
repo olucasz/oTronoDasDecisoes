@@ -24,7 +24,7 @@
   --font-title: "Cormorant Garamond", Georgia, serif;
   --font-subtitle: "Libre Baskerville", Georgia, serif;
   --font-body: "Inter", Arial, sans-serif;
-  --font-signature: "Allura", "Snell Roundhand", "Segoe Script", cursive;
+  --font-signature: "Taken by Vultures", "Italianno", "Allura", "Snell Roundhand", "Segoe Script", cursive;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -77,4 +77,12 @@
   :root {
     --container-padding: 2rem;
   }
+}
+
+@font-face {
+  font-family: "Taken by Vultures";
+  src: url("../../public/assets/fonts/Taken by Vultures Demo.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }

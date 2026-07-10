@@ -4,7 +4,11 @@
   overflow: hidden;
   scroll-margin-top: 4.25rem;
   background:
-    radial-gradient(circle at 80% 22%, rgb(217 190 121 / 14%), transparent 24rem),
+    radial-gradient(
+      circle at 80% 22%,
+      rgb(217 190 121 / 14%),
+      transparent 24rem
+    ),
     linear-gradient(180deg, rgb(252 250 246 / 98%), rgb(248 243 235 / 100%)),
     var(--color-paper);
   color: var(--color-wine);
@@ -74,54 +78,103 @@
   transform: scale(1.15);
 }
 
-.offer-section__thumbs {
-  display: flex;
-  width: min(100%, 31.5rem);
-  gap: var(--space-3);
+.offer-section__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: inline-flex;
+  width: 2.35rem;
+  height: 2.35rem;
+  align-items: center;
   justify-content: center;
-  overflow-x: auto;
-  padding: var(--space-1) var(--space-1) var(--space-2);
-  scrollbar-width: thin;
-}
-
-.offer-section__thumb {
-  flex: 0 0 clamp(4.75rem, 18vw, 6.85rem);
-  aspect-ratio: 1.18;
-  overflow: hidden;
-  border: 0.0625rem solid transparent;
-  border-radius: 0.5rem;
-  background: rgb(233 221 204 / 66%);
+  border: 0.0625rem solid rgb(178 139 67 / 34%);
+  border-radius: 999px;
+  background: rgb(252 250 246 / 78%);
+  color: var(--color-wine-cta);
   cursor: pointer;
+  transform: translateY(-50%);
   transition:
+    background-color var(--transition-base),
     border-color var(--transition-base),
-    filter var(--transition-base),
+    color var(--transition-base),
     transform var(--transition-base);
 }
 
-.offer-section__thumb:hover {
-  filter: saturate(1.04) contrast(1.02);
-  transform: translateY(-0.0625rem);
-}
-
-.offer-section__thumb[aria-current="true"] {
+.offer-section__arrow:hover {
   border-color: var(--color-gold);
+  background: rgb(252 250 246 / 94%);
+  color: var(--color-gold-ink);
+  transform: translateY(-50%) scale(1.03);
 }
 
-.offer-section__thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.offer-section__arrow:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+.offer-section__arrow svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.offer-section__arrow--prev {
+  left: var(--space-4);
+}
+
+.offer-section__arrow--next {
+  right: var(--space-4);
+}
+
+.offer-section__dots {
+  display: flex;
+  gap: 0.55rem;
+  justify-content: center;
+  padding-block: var(--space-1);
+}
+
+.offer-section__dot {
+  width: 0.62rem;
+  height: 0.62rem;
+  border: 0.0625rem solid rgb(178 139 67 / 58%);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.offer-section__dot:hover {
+  border-color: var(--color-gold-ink);
+  transform: scale(1.12);
+}
+
+.offer-section__dot[aria-current="true"] {
+  border-color: var(--color-gold-ink);
+  background: var(--color-gold);
 }
 
 .offer-section__content {
   display: grid;
-  justify-items: start;
-  max-width: 31.25rem;
+  width: 100%;
+  gap: var(--space-4);
+  justify-self: start;
+  align-self: start;
+  max-width: 34rem;
   color: var(--color-wine);
 }
 
 .offer-section__eyebrow {
-  margin: 0 0 var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: fit-content;
+  margin: 0;
   color: var(--color-gold-ink);
   font-family: var(--font-body);
   font-size: var(--eyebrow-size);
@@ -131,27 +184,35 @@
   text-transform: uppercase;
 }
 
+.offer-section__eyebrow::before {
+  width: 2rem;
+  height: 0.0625rem;
+  background: currentColor;
+  content: "";
+}
+
 .offer-section h2 {
-  max-width: 12ch;
+  max-width: 8.45em;
   margin: 0;
   color: var(--color-wine-deep);
   font-family: var(--font-title);
-  font-size: clamp(3rem, 13vw, 4.45rem);
+  font-size: 2.45rem;
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 0.94;
+  line-height: 0.96;
+  text-align: left;
   text-wrap: balance;
 }
 
 .offer-section__copy {
   display: grid;
-  gap: var(--space-4);
-  max-width: 30rem;
-  margin: var(--space-5) 0 0;
+  gap: var(--space-3);
+  max-width: 32rem;
+  margin: 0;
   color: var(--color-prose);
   font-family: var(--font-body);
   font-size: var(--copy-size);
-  line-height: var(--copy-line-height);
+  line-height: 1.62;
   text-wrap: pretty;
 }
 
@@ -159,33 +220,43 @@
   margin: 0;
 }
 
-.offer-section__price {
+.offer-section__actions {
   display: grid;
-  grid-template-columns: minmax(7.75rem, 0.88fr) 0.0625rem minmax(11.75rem, 1.12fr);
-  gap: clamp(1rem, 4vw, 1.65rem);
-  align-items: stretch;
-  width: min(100%, 30rem);
-  margin: clamp(1.75rem, 5vw, 2.35rem) 0 var(--space-6);
+  width: 100%;
+  gap: var(--space-3);
+  margin: 0;
 }
 
-.offer-section__price-rule {
-  width: 0.0625rem;
-  min-height: 4.25rem;
-  background: rgb(178 139 67 / 46%);
+.offer-section__price {
+  display: grid;
+  gap: var(--space-2);
+  width: min(100%, 32rem);
+  margin: 0;
+  padding: 0;
 }
 
 .offer-section__price-row {
   display: grid;
-  align-content: start;
-  gap: var(--space-2);
+  justify-items: start;
+  gap: 0.25rem;
+}
+
+.offer-section__price-row--old {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.offer-section__price-row--current {
+  gap: 0.3rem;
 }
 
 .offer-section__price-label {
   color: rgb(74 48 38 / 76%);
   font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.11em;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -197,56 +268,71 @@
   letter-spacing: 0;
   line-height: 0.9;
   white-space: nowrap;
+  margin: 0.3rem;
 }
 
 .offer-section__old-price {
   color: rgb(49 17 23 / 78%);
-  font-size: clamp(2.1rem, 8.4vw, 3rem);
+  font-size: 2.2rem;
   text-decoration: line-through;
-  text-decoration-thickness: 0.0625rem;
-  text-decoration-color: rgb(49 17 23 / 76%);
+  text-decoration-thickness: 0.075rem;
+  text-decoration-color: rgb(49 17 23 / 82%);
 }
 
 .offer-section__current-price {
   color: var(--color-wine-cta);
-  font-size: clamp(3rem, 10.8vw, 4.15rem);
+  font-size: 3.4rem;
 }
 
 .offer-section__deadline {
-  display: flex;
-  width: min(100%, 29rem);
-  align-items: center;
-  gap: var(--space-4);
-  margin: 0 0 var(--space-5);
+  width: min(100%, 32rem);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   color: rgb(74 48 38 / 82%);
-  font-family: var(--font-subtitle);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 200;
   line-height: 1.45;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.offer-section__deadline::before,
-.offer-section__deadline::after {
-  flex: 1 1 3rem;
-  height: 0.0625rem;
-  background: rgb(178 139 67 / 52%);
-  content: "";
+  text-align: left;
 }
 
 .offer-section__cta {
-  width: min(100%, 23rem);
+  width: min(100%, 32rem);
 }
 
 .offer-section__microcopy {
-  max-width: 23rem;
-  margin: var(--space-3) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: min(100%, 32rem);
+  margin: 0;
   color: rgb(74 48 38 / 72%);
   font-size: 0.78rem;
   line-height: 1.45;
   text-align: center;
+}
+
+.offer-section__microcopy-lock {
+  display: inline-flex;
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: 0 0 auto;
+  color: var(--color-gold-ink);
+}
+
+.offer-section__microcopy-lock svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.offer-section__microcopy-text {
+  max-width: none;
 }
 
 @media (min-width: 48rem) {
@@ -256,15 +342,6 @@
 
   .offer-section__main {
     width: min(88vw, 39rem);
-  }
-
-  .offer-section__deadline {
-    white-space: nowrap;
-  }
-
-  .offer-section__deadline::before,
-  .offer-section__deadline::after {
-    min-width: 1.75rem;
   }
 }
 
@@ -276,7 +353,7 @@
   .offer-section__inner {
     grid-template-columns: minmax(29rem, 1.08fr) minmax(25rem, 0.92fr);
     min-height: min(52rem, calc(100svh - 4.75rem));
-    align-items: center;
+    align-items: start;
     column-gap: clamp(3.25rem, 6.4vw, 6rem);
     padding-block: clamp(3rem, 4.8vw, 4.35rem);
   }
@@ -291,18 +368,32 @@
   }
 
   .offer-section__content {
-    justify-self: start;
-    max-width: 31rem;
+    max-width: 34rem;
+    padding-top: 0.25rem;
   }
 
   .offer-section h2 {
-    font-size: clamp(3.45rem, 4.6vw, 4.35rem);
+    max-width: 10.65em;
+    font-size: 3.05rem;
     line-height: 0.96;
   }
 
   .offer-section__copy {
-    margin-top: var(--space-5);
     font-size: 0.98rem;
+  }
+
+  .offer-section__actions {
+    gap: var(--space-3);
+  }
+
+  .offer-section__price,
+  .offer-section__deadline,
+  .offer-section__microcopy {
+    width: min(100%, 32rem);
+  }
+
+  .offer-section__microcopy {
+    white-space: nowrap;
   }
 }
 
@@ -329,35 +420,24 @@
 
   .offer-section__content {
     justify-self: center;
-    width: min(100%, 31rem);
+    width: min(100%, 32rem);
+    max-width: 32rem;
   }
 
   .offer-section h2 {
-    font-size: clamp(2.35rem, 10.4vw, 2.9rem);
+    max-width: 8.45em;
+    font-size: 2.35rem;
     line-height: 0.96;
   }
 
   .offer-section__copy {
     gap: var(--space-3);
-    margin-top: var(--space-4);
     font-size: 0.95rem;
     line-height: 1.62;
   }
 
-  .offer-section__thumb {
-    flex-basis: clamp(4rem, 18vw, 4.65rem);
-  }
-
   .offer-section__price {
-    grid-template-columns: minmax(6.35rem, 0.86fr) 0.0625rem minmax(9rem, 1.14fr);
-    gap: var(--space-3);
-    margin-block: var(--space-5);
-  }
-
-  .offer-section__price-rule {
-    width: 0.0625rem;
-    min-height: 3.55rem;
-    height: auto;
+    gap: 0.45rem;
   }
 
   .offer-section__price-row {
@@ -365,11 +445,11 @@
   }
 
   .offer-section__old-price {
-    font-size: clamp(1.75rem, 8vw, 2.1rem);
+    font-size: 1.05rem;
   }
 
   .offer-section__current-price {
-    font-size: clamp(2.35rem, 10.4vw, 3rem);
+    font-size: 2.45rem;
   }
 
   .offer-section__cta {
@@ -377,21 +457,30 @@
   }
 
   .offer-section__microcopy {
-    justify-self: center;
     width: 100%;
+    justify-content: center;
+    white-space: normal;
+  }
+
+  .offer-section__microcopy-text {
+    max-width: 19rem;
   }
 }
 
 @media (max-width: 23.4375rem) {
   .offer-section h2 {
-    font-size: 2.28rem;
+    font-size: 2.12rem;
   }
 
   .offer-section__current-price {
-    font-size: 2.35rem;
+    font-size: 2.2rem;
   }
 
   .offer-section__old-price {
-    font-size: 1.72rem;
+    font-size: 1.05rem;
+  }
+
+  .offer-section__microcopy {
+    font-size: 0.75rem;
   }
 }

@@ -4,32 +4,58 @@
 
     galleries.forEach((gallery) => {
       const mainImage = gallery.querySelector("[data-offer-main-image]");
-      const thumbs = Array.from(gallery.querySelectorAll("[data-offer-thumb]"));
+      const slides = Array.from(gallery.querySelectorAll("[data-offer-slide]"));
+      const controls = Array.from(gallery.querySelectorAll("[data-offer-direction]"));
 
-      if (!mainImage || thumbs.length === 0) {
+      if (!mainImage || slides.length === 0) {
         return;
       }
 
-      thumbs.forEach((thumb) => {
-        thumb.addEventListener("click", () => {
-          const src = thumb.dataset.offerSrc;
-          const alt = thumb.dataset.offerAlt || mainImage.alt;
+      let currentIndex = slides.findIndex(
+        (slide) => slide.getAttribute("aria-current") === "true"
+      );
 
-          if (!src || mainImage.getAttribute("src") === src) {
-            return;
-          }
+      if (currentIndex < 0) {
+        currentIndex = 0;
+      }
 
-          thumbs.forEach((item) => {
-            item.setAttribute("aria-current", item === thumb ? "true" : "false");
-          });
+      let switchTimer;
 
-          mainImage.classList.add("is-switching");
+      function showSlide(nextIndex) {
+        const index = (nextIndex + slides.length) % slides.length;
+        const slide = slides[index];
+        const src = slide.dataset.offerSrc;
+        const alt = slide.dataset.offerAlt || mainImage.alt;
 
-          window.setTimeout(() => {
-            mainImage.src = src;
-            mainImage.alt = alt;
-            mainImage.classList.remove("is-switching");
-          }, 120);
+        if (!src || index === currentIndex) {
+          return;
+        }
+
+        slides.forEach((item, itemIndex) => {
+          item.setAttribute("aria-current", itemIndex === index ? "true" : "false");
+        });
+
+        currentIndex = index;
+        mainImage.classList.add("is-switching");
+        window.clearTimeout(switchTimer);
+
+        switchTimer = window.setTimeout(() => {
+          mainImage.src = src;
+          mainImage.alt = alt;
+          mainImage.classList.remove("is-switching");
+        }, 120);
+      }
+
+      slides.forEach((slide, index) => {
+        slide.addEventListener("click", () => {
+          showSlide(index);
+        });
+      });
+
+      controls.forEach((control) => {
+        control.addEventListener("click", () => {
+          const step = control.dataset.offerDirection === "prev" ? -1 : 1;
+          showSlide(currentIndex + step);
         });
       });
     });
