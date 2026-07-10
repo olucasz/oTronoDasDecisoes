@@ -606,10 +606,10 @@ function getCacheControl(pathname, extension) {
   }
 
   if (pathname.startsWith("/public/assets/") || pathname.startsWith("/public/vendor/")) {
-    return "public, max-age=31536000, immutable";
+    return "public, max-age=300, must-revalidate";
   }
 
-  return "public, max-age=3600";
+  return "public, max-age=300, must-revalidate";
 }
 
 function getContentEncoding(req, extension) {

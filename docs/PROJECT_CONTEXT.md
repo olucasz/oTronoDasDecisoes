@@ -37,11 +37,11 @@ Landing page de pre-venda do livro **O Trono das Decisões**, de **Mateus Chaves
 
 ## Assets Prioritarios
 
-- Hero principal: `public/assets/hero/fundo-livroHero.png`.
+- Hero principal: `public/assets/hero/fundo-livroHero-hq.png`.
   - Fundo claro de sala/palacio com colunas, marmore, pedestal e livro em pe a direita.
   - Area livre a esquerda para copy da Hero no desktop.
   - Deve ser usado sem edicao visual nesta etapa.
-- Fundo limpo: `public/assets/hero/fundoHero.png`.
+- Fundo limpo: `public/assets/hero/fundoHero-hq.png`.
   - Mesma sala sem o livro, util para secoes futuras ou composicoes alternativas.
 - Logo: `public/assets/logo/logo.png`.
   - Marca do livro em PNG com transparencia, usada no Header.
@@ -54,7 +54,7 @@ Landing page de pre-venda do livro **O Trono das Decisões**, de **Mateus Chaves
   - O item ativo inicial e `trono.png`.
 - Leitura interativa: `public/assets/reading/`.
   - Paginas reais do trecho em PNG de alta qualidade a partir da pasta raiz `reading/`.
-  - Arquivos atuais, na ordem do leitor: `reading-trono.png`, `reading-intro.png`, `reading-cap1.png` e `reading-o-trono-das-decisoes.png`.
+  - Arquivos atuais, na ordem do leitor: `reading-trono-hq.png`, `reading-intro-hq.png`, `reading-cap1-hq.png` e `reading-o-trono-das-decisoes-hq.png`.
   - A secao usa `page-flip` para folhear as paginas por imagem, com fallback horizontal por swipe caso a biblioteca nao carregue.
 - Autor: `public/assets/author/`.
   - `autor.jpg` e usado como retrato principal na secao Sobre o autor.
@@ -81,7 +81,7 @@ Landing page de pre-venda do livro **O Trono das Decisões**, de **Mateus Chaves
 
 ## Direcao da Hero
 
-- Desktop: Header no topo, logo a esquerda, navegacao e CTA a direita. Hero com texto a esquerda e imagem `fundo-livroHero.png` preenchendo a composicao, preservando o livro a direita.
+- Desktop: Header no topo, logo a esquerda, navegacao e CTA a direita. Hero com texto a esquerda e imagem `fundo-livroHero-hq.png` preenchendo a composicao, preservando o livro a direita.
 - Mobile: Header compacto com logo e botao de menu. Imagem do livro aparece acima do texto, seguida da copy e CTAs empilhados.
 - Copy provisoria do PRD deve ser mantida sem inventar novas secoes.
 - CTAs: primario vinho com texto claro; secundario contornado com dourado/vinho.

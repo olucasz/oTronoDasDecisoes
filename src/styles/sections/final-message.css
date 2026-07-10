@@ -19,7 +19,7 @@
 .final-message::before {
   background:
     linear-gradient(180deg, rgb(24 8 11 / 16%), rgb(24 8 11 / 60%)),
-    url("../../../public/assets/universe/fundo.png");
+    url("../../../public/assets/universe/fundo.png?v=20260710-hq");
   background-position: center;
   background-size: cover;
 }

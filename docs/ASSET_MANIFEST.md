@@ -2,8 +2,8 @@
 
 ## Hero
 
-- `public/assets/hero/fundo-livroHero.png` — fundo principal da Hero com sala classica clara, colunas, pedestal e livro em pe a direita. Uso prioritario na Hero inicial.
-- `public/assets/hero/fundoHero.png` — fundo da mesma sala sem livro. Uso provavel em secoes futuras ou composicoes alternativas.
+- `public/assets/hero/fundo-livroHero-hq.png` — fundo principal da Hero em alta qualidade, com sala classica clara, colunas, pedestal e livro em pe a direita. Uso prioritario na Hero inicial.
+- `public/assets/hero/fundoHero-hq.png` — fundo da mesma sala sem livro, em alta qualidade. Uso provavel em secoes futuras ou composicoes alternativas.
 
 ## Livro
 
@@ -30,10 +30,10 @@
 
 ## Leitura Interativa
 
-- `public/assets/reading/reading-trono.png` — pagina Trono em alta qualidade, copiada de `reading/trono.png`.
-- `public/assets/reading/reading-intro.png` — pagina de introducao em alta qualidade, copiada de `reading/intro.png`.
-- `public/assets/reading/reading-cap1.png` — pagina do capitulo 1 em alta qualidade, copiada de `reading/cap1.png`.
-- `public/assets/reading/reading-o-trono-das-decisoes.png` — pagina O Trono das Decisoes em alta qualidade, copiada do PNG final recebido na pasta `reading/`.
+- `public/assets/reading/reading-trono-hq.png` — pagina Trono em alta qualidade, copiada de `reading/trono.png`.
+- `public/assets/reading/reading-intro-hq.png` — pagina de introducao em alta qualidade, copiada de `reading/intro.png`.
+- `public/assets/reading/reading-cap1-hq.png` — pagina do capitulo 1 em alta qualidade, copiada de `reading/cap1.png`.
+- `public/assets/reading/reading-o-trono-das-decisoes-hq.png` — pagina O Trono das Decisoes em alta qualidade, copiada do PNG final recebido na pasta `reading/`.
 - `public/vendor/page-flip.browser.js` — bundle UMD local da biblioteca `page-flip`, usado pela Section 3 sem depender de CDN.
 - `reading/refSection3.png` — referencia visual recebida para layout da Section 3, mantida fora de `public` por nao ser asset de producao.
 
