@@ -27,13 +27,25 @@
   z-index: var(--z-section-overlay);
   background:
     radial-gradient(circle at 50% 48%, rgb(91 29 41 / 48%), transparent 35rem),
-    linear-gradient(90deg, rgb(24 8 11 / 42%), transparent 28%, transparent 72%, rgb(24 8 11 / 42%));
+    linear-gradient(
+      90deg,
+      rgb(24 8 11 / 42%),
+      transparent 28%,
+      transparent 72%,
+      rgb(24 8 11 / 42%)
+    );
   content: "";
 }
 
 .universe-section::after {
   z-index: var(--z-section-overlay);
-  background: linear-gradient(180deg, rgb(24 8 11 / 36%), transparent 20%, transparent 75%, rgb(24 8 11 / 54%));
+  background: linear-gradient(
+    180deg,
+    rgb(24 8 11 / 36%),
+    transparent 20%,
+    transparent 75%,
+    rgb(24 8 11 / 54%)
+  );
   content: "";
 }
 
@@ -102,8 +114,12 @@
   gap: var(--space-4);
   margin-inline: calc(var(--container-padding) * -1);
   overflow-x: auto;
-  padding: var(--space-1) max(var(--container-padding), calc((100vw - 19rem) / 2)) var(--space-4);
-  scroll-padding-inline: max(var(--container-padding), calc((100vw - 19rem) / 2));
+  padding: var(--space-1)
+    max(var(--container-padding), calc((100vw - 19rem) / 2)) var(--space-4);
+  scroll-padding-inline: max(
+    var(--container-padding),
+    calc((100vw - 19rem) / 2)
+  );
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
@@ -148,8 +164,7 @@
 }
 
 .universe-card[aria-current="true"] img {
-  filter:
-    drop-shadow(0 1.25rem 1.5rem rgb(0 0 0 / 42%))
+  filter: drop-shadow(0 1.25rem 1.5rem rgb(0 0 0 / 42%))
     drop-shadow(var(--section-card-glow));
 }
 
@@ -229,6 +244,61 @@
   outline-offset: 0.25rem;
 }
 
+@media (max-width: 47.9375rem) {
+  .universe-section__container {
+    padding-block: clamp(2rem, 6.4vw, 2.65rem);
+  }
+
+  .universe-section__header {
+    width: min(100%, 22.5rem);
+  }
+
+  .section-eyebrow {
+    gap: var(--space-2);
+    margin-bottom: 0.55rem;
+    font-size: 0.62rem;
+    margin-top: 1.5rem;
+  }
+
+  .section-eyebrow::before,
+  .section-eyebrow::after {
+    width: clamp(1.6rem, 10vw, 2.3rem);
+  }
+
+  .universe-section__header h2 {
+    width: min(100%, 21rem);
+    max-width: 21rem;
+    margin-inline: auto;
+    font-size: clamp(2rem, 8.8vw, 2.42rem);
+    line-height: 0.98;
+  }
+
+  .universe-section__header p:not(.section-eyebrow) {
+    max-width: 36ch;
+    margin-top: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .universe-carousel {
+    margin-top: 1.15rem;
+  }
+
+  .universe-carousel__track {
+    gap: 0.75rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .universe-card {
+    flex-basis: min(72vw, 18rem);
+    width: min(72vw, 18rem);
+  }
+
+  .universe-carousel__dots {
+    margin-top: 0.1rem;
+  }
+}
+
 @media (min-width: 48rem) {
   .universe-section__container {
     padding-block: clamp(3.25rem, 6vw, 4.75rem);
@@ -236,7 +306,10 @@
 
   .universe-carousel__track {
     padding-inline: max(var(--container-padding), calc((100vw - 20rem) / 2));
-    scroll-padding-inline: max(var(--container-padding), calc((100vw - 20rem) / 2));
+    scroll-padding-inline: max(
+      var(--container-padding),
+      calc((100vw - 20rem) / 2)
+    );
   }
 
   .universe-card {
@@ -298,8 +371,7 @@
     flex-basis: auto;
     width: var(--card-width);
     scroll-snap-align: none;
-    transform:
-      translate(-50%, -50%)
+    transform: translate(-50%, -50%)
       translateX(calc(var(--card-offset, 0) * var(--card-shift)))
       scale(var(--card-scale, 0.72));
     transform-origin: center;
@@ -309,8 +381,7 @@
   }
 
   .universe-card:hover {
-    transform:
-      translate(-50%, -50%)
+    transform: translate(-50%, -50%)
       translateX(calc(var(--card-offset, 0) * var(--card-shift)))
       scale(calc(var(--card-scale, 0.72) + 0.025));
   }
@@ -435,7 +506,10 @@
 
   .universe-carousel__track {
     padding-inline: max(var(--container-padding), calc((100vw - 16.25rem) / 2));
-    scroll-padding-inline: max(var(--container-padding), calc((100vw - 16.25rem) / 2));
+    scroll-padding-inline: max(
+      var(--container-padding),
+      calc((100vw - 16.25rem) / 2)
+    );
   }
 
   .universe-card {

@@ -296,13 +296,14 @@
 
 @media (max-width: 47.9375rem) {
   .author-section__inner {
-    gap: clamp(1.15rem, 4.6vw, 1.65rem);
-    padding-block: clamp(1.85rem, 6vw, 2.45rem);
+    gap: clamp(1rem, 4vw, 1.45rem);
+    padding-block: clamp(1.65rem, 5.5vw, 2.15rem);
   }
 
   .author-section__eyebrow {
     gap: var(--space-2);
     margin-bottom: 0.35rem;
+    margin-bottom: 1rem;
   }
 
   .author-section__eyebrow::before,
@@ -313,42 +314,44 @@
   .author-section h2 {
     width: 100%;
     max-width: none;
-    font-size: clamp(1.5rem, 6.7vw, 2rem);
+    margin-top: 0;
+    font-size: clamp(2rem, 5.55vw, 1.64rem);
     line-height: 1;
     letter-spacing: 0;
     white-space: nowrap;
     text-wrap: nowrap;
-    margin-top: 1rem;
   }
 
   .author-section__lead {
-    max-width: 19.5rem;
-    margin-top: 0.45rem;
-    font-size: clamp(0.92rem, 3.7vw, 1.1rem);
+    max-width: 22rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(0.9rem, 3.55vw, 1rem);
     line-height: 1.42;
     text-align: center;
   }
 
   .author-section__media {
-    width: min(78vw, 16.75rem);
-    margin-bottom: clamp(1.3rem, 5.2vw, 1.8rem);
+    width: min(74vw, 15.75rem);
+    margin-bottom: clamp(1.15rem, 4.8vw, 1.55rem);
   }
 
   .author-section__family {
-    bottom: -1.05rem;
-    width: min(56%, 11.35rem);
+    bottom: -0.9rem;
+    width: min(52%, 10.5rem);
+    margin-bottom: 1rem;
   }
 
   .author-section__bio {
     justify-self: center;
-    max-width: 35ch;
+    max-width: 34ch;
   }
 
   .author-section__bio-text {
-    gap: var(--space-3);
+    gap: 0.7rem;
     color: var(--color-prose);
-    font-size: clamp(0.9rem, 3.65vw, 0.96rem);
-    line-height: 1.58;
+    font-size: clamp(0.88rem, 3.55vw, 0.94rem);
+    line-height: 1.54;
     text-align: center;
   }
 }

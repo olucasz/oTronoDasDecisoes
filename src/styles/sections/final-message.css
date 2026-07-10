@@ -130,14 +130,14 @@
       "rule"
       "copy"
       "signature";
-    gap: var(--space-3);
+    gap: 0.8rem;
     justify-items: center;
-    padding-block: clamp(1.25rem, 5vw, 1.7rem);
+    padding-block: clamp(1.25rem, 4.8vw, 1.65rem);
     text-align: center;
   }
 
   /* .final-message__rule {
-    width: 2.35rem;
+    width: 2.25rem;
     height: 0.0625rem;
     min-height: 0;
     justify-self: center;
@@ -145,25 +145,35 @@
 
   .final-message__copy {
     justify-self: center;
-    max-width: 25rem;
+    max-width: 36ch;
   }
 
   .final-message h2 {
-    /* margin-bottom: var(--space-3); */
-    margin-top: 0.5rem;
-    margin-bottom: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin: 0 0 0.7rem;
+  }
+
+  .final-message h2::before,
+  .final-message h2::after {
+    width: clamp(1.5rem, 9vw, 2.15rem);
+    height: 0.0625rem;
+    background: currentColor;
+    content: "";
   }
 
   .final-message__text {
-    gap: 0.6rem;
-    font-size: 0.86rem;
-    line-height: 1.5;
+    gap: 0.55rem;
+    font-size: 0.84rem;
+    line-height: 1.48;
   }
 
   .final-message__signature {
     justify-self: center;
     width: 100%;
-    font-size: clamp(1.9rem, 8vw, 3rem);
+    font-size: clamp(2.05rem, 9vw, 2.75rem);
     text-align: center;
   }
 }

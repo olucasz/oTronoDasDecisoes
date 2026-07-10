@@ -26,19 +26,16 @@
     }
 
     const book = viewer.querySelector("[data-reading-book]");
-    const fallback = viewer.querySelector("[data-reading-fallback]");
     const dotsContainer = viewer.querySelector("[data-reading-dots]");
     const previousButton = viewer.querySelector("[data-reading-prev]");
     const nextButton = viewer.querySelector("[data-reading-next]");
 
-    if (!book || !fallback || !dotsContainer || !previousButton || !nextButton) {
+    if (!book || !dotsContainer || !previousButton || !nextButton) {
       return;
     }
 
     let pageFlip = null;
     let currentPage = 0;
-    let scrollRaf = null;
-    const shouldUseFallback = window.matchMedia("(max-width: 47.9375rem)").matches;
 
     const dots = pages.map((page, index) => {
       const dot = document.createElement("button");
@@ -50,7 +47,7 @@
       return dot;
     });
 
-    function setCurrentPage(index, options = {}) {
+    function setCurrentPage(index) {
       currentPage = clampPage(index);
 
       dots.forEach((dot, dotIndex) => {
@@ -59,93 +56,45 @@
 
       previousButton.disabled = currentPage === 0;
       nextButton.disabled = currentPage === pages.length - 1;
-
-      if (options.syncFallback && viewer.classList.contains("is-fallback")) {
-        const targetPage = fallback.children[currentPage];
-
-        if (targetPage) {
-          const left = targetPage.offsetLeft - (fallback.clientWidth - targetPage.clientWidth) / 2;
-
-          fallback.scrollTo({
-            left,
-            behavior: options.instant ? "auto" : "smooth",
-          });
-        }
-      }
     }
 
-    function activateFallback() {
+    function disableReader() {
       pageFlip = null;
-      viewer.classList.add("is-fallback");
-      fallback.removeAttribute("aria-hidden");
-      book.setAttribute("aria-hidden", "true");
-      setCurrentPage(currentPage, { syncFallback: true, instant: true });
+      viewer.classList.add("is-unavailable");
+      previousButton.disabled = true;
+      nextButton.disabled = true;
+      dots.forEach((dot) => {
+        dot.disabled = true;
+      });
     }
 
     function goToPage(index) {
       const nextPage = clampPage(index);
 
-      if (pageFlip) {
-        pageFlip.turnToPage(nextPage);
-      }
-
-      setCurrentPage(nextPage, { syncFallback: true });
-    }
-
-    function syncFallbackPageFromScroll() {
-      scrollRaf = null;
-
-      if (!viewer.classList.contains("is-fallback")) {
+      if (!pageFlip) {
         return;
       }
 
-      const fallbackRect = fallback.getBoundingClientRect();
-      const fallbackCenter = fallbackRect.left + fallbackRect.width / 2;
-      let closestIndex = currentPage;
-      let closestDistance = Number.POSITIVE_INFINITY;
-
-      Array.from(fallback.children).forEach((child, index) => {
-        const childRect = child.getBoundingClientRect();
-        const childCenter = childRect.left + childRect.width / 2;
-        const distance = Math.abs(childCenter - fallbackCenter);
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = index;
-        }
-      });
-
-      setCurrentPage(closestIndex);
+      pageFlip.turnToPage(nextPage);
+      setCurrentPage(nextPage);
     }
 
     previousButton.addEventListener("click", () => goToPage(currentPage - 1));
     nextButton.addEventListener("click", () => goToPage(currentPage + 1));
 
-    fallback.addEventListener(
-      "scroll",
-      () => {
-        if (scrollRaf !== null) {
-          return;
-        }
-
-        scrollRaf = window.requestAnimationFrame(syncFallbackPageFromScroll);
-      },
-      { passive: true },
-    );
-
     try {
-      if (shouldUseFallback || !window.St || !window.St.PageFlip) {
-        activateFallback();
+      if (!window.St || !window.St.PageFlip) {
+        disableReader();
         return;
       }
 
       pageFlip = new window.St.PageFlip(book, {
-        width: 560,
-        height: 760,
-        minWidth: 360,
-        maxWidth: 680,
-        minHeight: 500,
-        maxHeight: 920,
+        width: 420,
+        height: 588,
+        minWidth: 260,
+        maxWidth: 480,
+        minHeight: 364,
+        maxHeight: 672,
         size: "stretch",
         autoSize: true,
         drawShadow: true,
@@ -166,10 +115,10 @@
         setCurrentPage(initialPage);
       });
     } catch (error) {
-      activateFallback();
+      disableReader();
     }
 
-    setCurrentPage(0, { syncFallback: true, instant: true });
+    setCurrentPage(0);
   }
 
   window.initReadingViewer = initReadingViewer;
