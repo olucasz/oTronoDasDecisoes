@@ -279,20 +279,20 @@
   .reading-section__inner {
     grid-template-columns: minmax(20rem, 0.78fr) minmax(38rem, 1.22fr);
     min-height: min(50rem, calc(100svh - 4.75rem));
-    align-items: start;
+    align-items: center;
     column-gap: clamp(2.5rem, 5vw, 4.5rem);
     padding-block: clamp(2.5rem, 4.7vw, 3.75rem);
   }
 
   .reading-section__content {
-    align-self: start;
-    justify-content: flex-start;
+    align-self: center;
+    justify-content: center;
     min-height: var(--reading-book-height);
     padding-block: clamp(1rem, 2vw, 1.5rem) clamp(0.35rem, 0.9vw, 0.75rem);
   }
 
   .reading-section__viewer {
-    align-self: start;
+    align-self: center;
     padding-block: clamp(0.25rem, 1vw, 0.75rem);
   }
 
@@ -348,18 +348,29 @@
     opacity: 0.12;
   }
   .reading-section__inner {
+    grid-template-areas:
+      "intro"
+      "viewer"
+      "cta";
     gap: clamp(1.15rem, 4.4vw, 1.6rem);
-    padding-block: clamp(1.75rem, 5.8vw, 2.3rem);
+    padding-block: clamp(1.75rem, 5.8vw, 2.3rem) clamp(2.25rem, 7vw, 2.85rem);
     justify-content: center;
   }
 
   .reading-section__content {
-    max-width: min(100%, 25rem);
-    align-items: center;
+    display: contents;
   }
 
   .reading-section__intro {
+    display: grid;
+    grid-area: intro;
     justify-items: center;
+    max-width: min(100%, 25rem);
+    margin-inline: auto;
+  }
+
+  .reading-section__viewer {
+    grid-area: viewer;
   }
 
   .reading-section__eyebrow {
@@ -430,8 +441,10 @@
   }
 
   .reading-section__cta {
+    grid-area: cta;
+    justify-self: center;
     min-width: min(100%, 18rem);
-    margin-top: 0.9rem;
+    margin-top: 0;
   }
 }
 

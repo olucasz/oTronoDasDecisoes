@@ -45,7 +45,8 @@
   align-items: center;
   max-width: 58rem;
   margin-inline: auto;
-  padding-block: clamp(1.4rem, 2.2vw, 1.9rem);
+  padding-block: clamp(1.85rem, 2.8vw, 2.35rem)
+    clamp(1.4rem, 2.2vw, 1.9rem);
 }
 
 .final-message__rule {
@@ -132,7 +133,8 @@
       "signature";
     gap: 0.8rem;
     justify-items: center;
-    padding-block: clamp(1.25rem, 4.8vw, 1.65rem);
+    padding-block: clamp(1.95rem, 6.2vw, 2.45rem)
+      clamp(1.25rem, 4.8vw, 1.65rem);
     text-align: center;
   }
 

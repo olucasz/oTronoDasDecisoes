@@ -356,8 +356,9 @@
     grid-template-areas:
       "gallery lead"
       "gallery body";
-    grid-template-rows: auto 1fr;
-    min-height: min(52rem, calc(100svh - 4.75rem));
+    grid-template-rows: auto auto;
+    min-height: min(44rem, calc(100svh - 4.75rem));
+    align-content: center;
     align-items: start;
     column-gap: clamp(3.25rem, 6.4vw, 6rem);
     row-gap: var(--space-4);
@@ -433,7 +434,7 @@
 
   .offer-section__inner {
     gap: clamp(1.25rem, 5vw, 1.75rem);
-    padding-block: clamp(1.85rem, 6vw, 2.5rem);
+    padding-block: clamp(1.85rem, 6vw, 2.5rem) clamp(2.35rem, 7.2vw, 3rem);
   }
 
   .offer-section__lead,

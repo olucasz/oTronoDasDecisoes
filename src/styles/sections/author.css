@@ -189,7 +189,7 @@
       "media heading"
       "media bio";
     min-height: min(52rem, calc(100svh - 4.75rem));
-    align-content: start;
+    align-content: center;
     align-items: start;
     column-gap: clamp(4rem, 8vw, 6.5rem);
     row-gap: clamp(1.9rem, 3vw, 2.5rem);
@@ -297,7 +297,8 @@
 @media (max-width: 47.9375rem) {
   .author-section__inner {
     gap: clamp(1rem, 4vw, 1.45rem);
-    padding-block: clamp(1.65rem, 5.5vw, 2.15rem);
+    padding-block: clamp(1.65rem, 5.5vw, 2.15rem)
+      clamp(2.15rem, 6.8vw, 2.7rem);
   }
 
   .author-section__eyebrow {
