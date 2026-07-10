@@ -390,15 +390,24 @@ function getAddressLines(address) {
 function buildBuyerWhatsappMessage(preorder) {
   const addressLines = getAddressLines(preorder.address);
   const lines = [
-    `Olá, ${preorder.fullName}! Obrigado pela compra do livro O Trono das Decisões.`,
+    "👑 Você tomou uma grande decisão!",
     "",
-    "Recebemos seus dados e vamos confirmar as informações por aqui:",
-    `Nome: ${preorder.fullName}`,
-    `WhatsApp: ${preorder.whatsapp}`,
-    `Forma de entrega: ${preorder.delivery.summary}`,
+    `Olá, ${preorder.fullName}! Que alegria ter você com a gente nessa jornada.`,
+    "",
+    "A sua compra do livro O Trono das Decisões foi recebida com sucesso! 📖",
+    "",
+    "Só queremos confirmar seus dados:",
+    "",
+    `👤 Nome: ${preorder.fullName}`,
+    `📱 WhatsApp: ${preorder.whatsapp}`,
+    `📦 Entrega: ${preorder.delivery.summary}`,
     ...addressLines,
     "",
-    "Assim que o pagamento for confirmado, seguimos com a próxima etapa.",
+    "Agora é só aguardar a confirmação do pagamento e, assim que estiver tudo certo, seguimos com a próxima etapa.",
+    "",
+    "Muito obrigado por acreditar nesse projeto. Espero que cada página ajude você a compreender uma verdade que pode mudar destinos.",
+    "",
+    "Deus abençoe sua vida! 🙌🏽👑",
   ];
 
   return lines.join("\n");
