@@ -89,7 +89,12 @@
   width: 7.25rem;
   height: 0.0625rem;
   margin: var(--space-4) 0 0;
-  background: linear-gradient(90deg, transparent, rgb(178 139 67 / 62%), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(178 139 67 / 62%),
+    transparent
+  );
   content: "";
 }
 
@@ -413,24 +418,36 @@
   }
 
   .reading-section__content {
-    text-align: left;
     max-width: 100%;
+    align-items: center;
   }
 
   .reading-section__eyebrow {
     margin: 0 0 var(--space-4);
-    text-align: left;
+    /* text-align: center; */
+    margin-top: 1rem;
+    justify-self: center;
   }
 
   .reading-section__eyebrow::before {
     width: clamp(1.75rem, 18vw, 2rem);
   }
+  .reading-section__eyebrow::after {
+    width: clamp(1.75rem, 18vw, 2rem);
+  }
+  .reading-section__eyebrow::after {
+    width: 2rem;
+    height: 0.0625rem;
+    background: currentColor;
+    content: "";
+  }
 
   .reading-section h2 {
-    max-width: 18rem;
+    max-width: 30ch;
     font-size: clamp(2.35rem, 10.2vw, 2.95rem);
     line-height: 0.96;
-    text-align: left;
+    text-align: center;
+    justify-items: center;
   }
 
   .reading-section h2::after {
@@ -443,6 +460,8 @@
     margin-top: var(--space-4);
     font-size: 0.95rem;
     line-height: 1.54;
+    max-width: 40ch;
+    text-align: center;
   }
 
   .reading-section__question {
@@ -504,38 +523,38 @@
   .reading-book {
     min-height: 21.5rem;
   }
-}
 
-@media (min-width: 64rem) and (max-height: 48rem) {
-  .reading-section {
-    --reading-book-height: 31rem;
-  }
+  @media (min-width: 64rem) and (max-height: 48rem) {
+    .reading-section {
+      --reading-book-height: 31rem;
+    }
 
-  .reading-section__inner {
-    padding-block: clamp(2rem, 4vw, 2.8rem);
-  }
+    .reading-section__inner {
+      padding-block: clamp(2rem, 4vw, 2.8rem);
+    }
 
-  .reading-section__content {
-    min-height: var(--reading-book-height);
-  }
+    .reading-section__content {
+      min-height: var(--reading-book-height);
+    }
 
-  .reading-section h2 {
-    font-size: clamp(3rem, 4.2vw, 3.7rem);
-  }
+    .reading-section h2 {
+      font-size: clamp(3rem, 4.2vw, 3.7rem);
+    }
 
-  .reading-section__copy {
-    gap: var(--space-3);
-    margin-top: var(--space-4);
-    font-size: 0.92rem;
-    line-height: 1.54;
-  }
+    .reading-section__copy {
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+      font-size: 0.92rem;
+      line-height: 1.54;
+    }
 
-  .reading-section__notes {
-    margin-top: var(--space-4);
-  }
+    .reading-section__notes {
+      margin-top: var(--space-4);
+    }
 
-  .reading-book {
-    min-height: var(--reading-book-height);
+    .reading-book {
+      min-height: var(--reading-book-height);
+    }
   }
 }
 

@@ -124,23 +124,34 @@
 
 @media (max-width: 47.9375rem) {
   .final-message__inner {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "rule"
       "copy"
       "signature";
     gap: var(--space-3);
+    justify-items: center;
     padding-block: clamp(1.25rem, 5vw, 1.7rem);
+    text-align: center;
   }
 
-  .final-message__rule {
+  /* .final-message__rule {
     width: 2.35rem;
     height: 0.0625rem;
     min-height: 0;
+    justify-self: center;
+  } */
+
+  .final-message__copy {
+    justify-self: center;
+    max-width: 25rem;
   }
 
   .final-message h2 {
-    margin-bottom: var(--space-3);
+    /* margin-bottom: var(--space-3); */
+    margin-top: 0.5rem;
+    margin-bottom: 1.2rem;
   }
 
   .final-message__text {
@@ -150,7 +161,9 @@
   }
 
   .final-message__signature {
+    justify-self: center;
     width: 100%;
-    font-size: clamp(1.9rem, 8vw, 2.35rem);
+    font-size: clamp(1.9rem, 8vw, 3rem);
+    text-align: center;
   }
 }
