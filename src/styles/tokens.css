@@ -63,6 +63,8 @@
 
   --z-header: 20;
   --z-menu: 30;
+  --z-modal-backdrop: 80;
+  --z-modal: 90;
   --z-section-bg: -2;
   --z-section-overlay: -1;
 

@@ -42,7 +42,7 @@ Não usar biblioteca pesada.
 
 ## Assets
 
-Use imagens renderizadas das páginas do livro, em `.webp`, dentro de:
+Use imagens renderizadas das páginas do livro, em `.png` de alta qualidade, dentro de:
 
 ```txt
 public/assets/reading/
@@ -51,10 +51,10 @@ public/assets/reading/
 Estrutura esperada:
 
 ```txt
-public/assets/reading/reading-page-01.webp
-public/assets/reading/reading-page-02.webp
-public/assets/reading/reading-page-03.webp
-public/assets/reading/reading-page-04.webp
+public/assets/reading/reading-trono.png
+public/assets/reading/reading-intro.png
+public/assets/reading/reading-cap1.png
+public/assets/reading/reading-o-trono-das-decisoes.png
 ```
 
 Essas imagens serão as páginas do flipbook.

@@ -21,5 +21,9 @@
     if (typeof window.initOfferGallery === "function") {
       window.initOfferGallery();
     }
+
+    if (typeof window.initPreorderModal === "function") {
+      window.initPreorderModal();
+    }
   });
 })();

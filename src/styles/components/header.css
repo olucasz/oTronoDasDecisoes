@@ -139,6 +139,23 @@
   transform: rotate(-45deg);
 }
 
+@media (max-width: 63.9375rem) {
+  .site-header__brand {
+    flex: 0 0 auto;
+  }
+
+  .menu-toggle {
+    position: fixed;
+    top: 0.5rem;
+    right: var(--container-padding);
+    z-index: calc(var(--z-menu) + 1);
+    flex: 0 0 2.75rem;
+    margin-left: auto;
+    border-color: rgb(49 17 23 / 28%);
+    background: rgb(252 250 246 / 96%);
+  }
+}
+
 @media (min-width: 64rem) {
   .site-header__inner {
     min-height: 4.35rem;
