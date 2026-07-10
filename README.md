@@ -55,6 +55,40 @@ npm install
 npm start
 ```
 
+## Checklist para Hostinger
+
+Aplicação Node.js:
+
+```txt
+Arquivo de entrada: server.js
+Comando de instalação: npm install --omit=dev
+Comando de inicialização: npm start
+Versão do Node: 18 ou superior
+```
+
+Antes de apontar o domínio:
+
+- Configure as variáveis do `.env.example` no painel da aplicação Node da Hostinger.
+- Troque `SITE_URL`, `robots.txt`, `sitemap.xml` e as metas em `index.html` se o domínio final não for `https://otronodasdecisoes.com.br/`.
+- Confirme os links reais do Mercado Pago em `MERCADO_PAGO_LINK_SEM_FRETE` e `MERCADO_PAGO_LINK_COM_FRETE`.
+- Mantenha `EMAIL_DRY_RUN=false` em produção.
+- Faça um teste completo do modal e confirme se o email chegou para `AUTHOR_EMAIL`.
+
+Arquivos necessários no deploy:
+
+- `index.html`
+- `server.js`
+- `package.json`
+- `package-lock.json`
+- `.env.example` apenas como referência, sem subir `.env` real se a Hostinger já guarda variáveis no painel
+- `public/`
+- `src/`
+- `robots.txt`
+- `sitemap.xml`
+- `llms.txt`
+
+Não é necessário subir pastas de referência, arquivos `.DS_Store`, `.tmp`, PRDs antigos ou `node_modules/`.
+
 ## Estrutura
 
 - `server.js` — servidor Node, endpoint `/api/preorder` e arquivos estáticos.

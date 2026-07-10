@@ -1,6 +1,7 @@
 const fs = require("fs");
 const http = require("http");
 const path = require("path");
+const zlib = require("zlib");
 const nodemailer = require("nodemailer");
 
 const ROOT_DIR = __dirname;
@@ -46,6 +47,7 @@ const MIME_TYPES = {
   ".jpg": "image/jpeg",
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
+  ".webmanifest": "application/manifest+json; charset=utf-8",
   ".otf": "font/otf",
   ".pdf": "application/pdf",
   ".png": "image/png",
@@ -53,7 +55,25 @@ const MIME_TYPES = {
   ".ttf": "font/ttf",
   ".txt": "text/plain; charset=utf-8",
   ".webp": "image/webp",
+  ".xml": "application/xml; charset=utf-8",
 };
+
+const ROOT_STATIC_FILES = new Set([
+  "/llms.txt",
+  "/robots.txt",
+  "/sitemap.xml",
+]);
+
+const COMPRESSIBLE_EXTENSIONS = new Set([
+  ".css",
+  ".html",
+  ".js",
+  ".json",
+  ".svg",
+  ".txt",
+  ".webmanifest",
+  ".xml",
+]);
 
 const rateLimitBuckets = new Map();
 
@@ -555,7 +575,7 @@ function getSafeStaticPath(pathname) {
   const isAllowedPath =
     normalizedPathname === "/" ||
     normalizedPathname === "/index.html" ||
-    normalizedPathname.startsWith("/reading/") ||
+    ROOT_STATIC_FILES.has(normalizedPathname) ||
     normalizedPathname.startsWith("/public/") ||
     normalizedPathname.startsWith("/src/");
 
@@ -578,6 +598,48 @@ function getSafeStaticPath(pathname) {
   }
 
   return filePath;
+}
+
+function getCacheControl(pathname, extension) {
+  if (extension === ".html") {
+    return "no-store";
+  }
+
+  if (pathname.startsWith("/public/assets/") || pathname.startsWith("/public/vendor/")) {
+    return "public, max-age=31536000, immutable";
+  }
+
+  return "public, max-age=3600";
+}
+
+function getContentEncoding(req, extension) {
+  if (!COMPRESSIBLE_EXTENSIONS.has(extension)) {
+    return null;
+  }
+
+  const acceptEncoding = String(req.headers["accept-encoding"] || "");
+
+  if (/\bbr\b/.test(acceptEncoding)) {
+    return "br";
+  }
+
+  if (/\bgzip\b/.test(acceptEncoding)) {
+    return "gzip";
+  }
+
+  return null;
+}
+
+function createCompressionStream(encoding) {
+  if (encoding === "br") {
+    return zlib.createBrotliCompress();
+  }
+
+  if (encoding === "gzip") {
+    return zlib.createGzip();
+  }
+
+  return null;
 }
 
 async function serveStatic(req, res, pathname) {
@@ -614,14 +676,17 @@ async function serveStatic(req, res, pathname) {
   const extension = path.extname(filePath).toLowerCase();
   const headers = {
     "Content-Type": MIME_TYPES[extension] || "application/octet-stream",
-    "Content-Length": stat.size,
+    "Cache-Control": getCacheControl(pathname, extension),
     "X-Content-Type-Options": "nosniff",
   };
 
-  if (extension === ".html") {
-    headers["Cache-Control"] = "no-store";
+  const contentEncoding = req.method === "GET" ? getContentEncoding(req, extension) : null;
+
+  if (contentEncoding) {
+    headers["Content-Encoding"] = contentEncoding;
+    headers["Vary"] = "Accept-Encoding";
   } else {
-    headers["Cache-Control"] = "public, max-age=3600";
+    headers["Content-Length"] = stat.size;
   }
 
   res.writeHead(200, headers);
@@ -631,7 +696,15 @@ async function serveStatic(req, res, pathname) {
     return;
   }
 
-  fs.createReadStream(filePath).pipe(res);
+  const readStream = fs.createReadStream(filePath);
+  const compressionStream = createCompressionStream(contentEncoding);
+
+  if (compressionStream) {
+    readStream.pipe(compressionStream).pipe(res);
+    return;
+  }
+
+  readStream.pipe(res);
 }
 
 const server = http.createServer(async (req, res) => {

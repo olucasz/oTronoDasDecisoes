@@ -46,9 +46,7 @@ Landing page de pre-venda do livro **O Trono das Decisões**, de **Mateus Chaves
 - Logo: `public/assets/logo/logo.png`.
   - Marca do livro em PNG com transparencia, usada no Header.
 - Mockups de livro: `public/assets/book/`.
-  - Principalmente `livroEmPe.png` para uso futuro quando for necessario separar o livro do fundo.
-- Referencias: `public/assets/references/`.
-  - Guiam espacamento, header, hierarquia, CTAs e versao mobile.
+  - Mockups finais usados na galeria da oferta: `livroEmPe.png`, `livroDeitado.png`, `livroDeitado2.png` e `livroDeitado3.png`.
 - Universo do livro: `public/assets/universe/`.
   - Fundo vinho ornamentado e cartas em pergaminho usadas na segunda secao.
   - `fundo.png` deve ser o fundo principal da secao.

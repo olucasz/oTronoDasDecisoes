@@ -1,11 +1,12 @@
 (function () {
+  const PAGE_FLIP_SCRIPT_SRC = "./public/vendor/page-flip.browser.js";
   const pages = [
     {
-      src: "reading/img1-sumario.png",
-      label: "Sumário",
+      src: "./public/assets/reading/reading-trono.png",
+      label: "Trono",
     },
     {
-      src: "./public/assets/reading/reading-o-trono-das-decisoes.png",
+      src: "./public/assets/reading/reading-intro.png",
       label: "Introdução",
     },
     {
@@ -13,21 +14,46 @@
       label: "Capítulo 1",
     },
     {
-      src: "reading/trono.png",
+      src: "./public/assets/reading/reading-o-trono-das-decisoes.png",
       label: "O Trono das Decisões",
     },
   ];
+
+  let pageFlipScriptPromise = null;
 
   function clampPage(index) {
     return Math.max(0, Math.min(index, pages.length - 1));
   }
 
-  function initReadingViewer() {
-    const viewer = document.querySelector("[data-reading-viewer]");
+  function loadPageFlipScript() {
+    if (window.St && window.St.PageFlip) {
+      return Promise.resolve();
+    }
 
-    if (!viewer) {
+    if (pageFlipScriptPromise) {
+      return pageFlipScriptPromise;
+    }
+
+    pageFlipScriptPromise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+
+      script.src = PAGE_FLIP_SCRIPT_SRC;
+      script.async = true;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error("PageFlip unavailable"));
+
+      document.head.append(script);
+    });
+
+    return pageFlipScriptPromise;
+  }
+
+  function mountReadingViewer(viewer) {
+    if (!viewer || viewer.dataset.readingReady === "true") {
       return;
     }
+
+    viewer.dataset.readingReady = "true";
 
     const book = viewer.querySelector("[data-reading-book]");
     const dotsContainer = viewer.querySelector("[data-reading-dots]");
@@ -92,44 +118,74 @@
     previousButton.addEventListener("click", () => goToPage(currentPage - 1));
     nextButton.addEventListener("click", () => goToPage(currentPage + 1));
 
-    try {
-      if (!window.St || !window.St.PageFlip) {
+    loadPageFlipScript()
+      .then(() => {
+        if (!window.St || !window.St.PageFlip) {
+          disableReader();
+          return;
+        }
+
+        pageFlip = new window.St.PageFlip(book, {
+          width: 420,
+          height: 588,
+          minWidth: 260,
+          maxWidth: 480,
+          minHeight: 364,
+          maxHeight: 672,
+          size: "stretch",
+          autoSize: true,
+          drawShadow: true,
+          flippingTime: 650,
+          maxShadowOpacity: 0.24,
+          mobileScrollSupport: true,
+          showCover: false,
+          startZIndex: 1,
+          swipeDistance: 24,
+          useMouseEvents: true,
+          usePortrait: true,
+        });
+
+        pageFlip.loadFromImages(pages.map((page) => page.src));
+        pageFlip.on("flip", (event) => setCurrentPage(Number(event.data) || 0));
+        pageFlip.on("init", (event) => {
+          const initialPage =
+            event && event.data ? Number(event.data.page) || 0 : 0;
+          setCurrentPage(initialPage);
+        });
+      })
+      .catch(() => {
         disableReader();
-        return;
-      }
-
-      pageFlip = new window.St.PageFlip(book, {
-        width: 420,
-        height: 588,
-        minWidth: 260,
-        maxWidth: 480,
-        minHeight: 364,
-        maxHeight: 672,
-        size: "stretch",
-        autoSize: true,
-        drawShadow: true,
-        flippingTime: 650,
-        maxShadowOpacity: 0.24,
-        mobileScrollSupport: true,
-        showCover: false,
-        startZIndex: 1,
-        swipeDistance: 24,
-        useMouseEvents: true,
-        usePortrait: true,
       });
-
-      pageFlip.loadFromImages(pages.map((page) => page.src));
-      pageFlip.on("flip", (event) => setCurrentPage(Number(event.data) || 0));
-      pageFlip.on("init", (event) => {
-        const initialPage =
-          event && event.data ? Number(event.data.page) || 0 : 0;
-        setCurrentPage(initialPage);
-      });
-    } catch (error) {
-      disableReader();
-    }
 
     setCurrentPage(0);
+  }
+
+  function initReadingViewer() {
+    const viewer = document.querySelector("[data-reading-viewer]");
+
+    if (!viewer) {
+      return;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      mountReadingViewer(viewer);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          mountReadingViewer(viewer);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "720px 0px",
+        threshold: 0.01,
+      },
+    );
+
+    observer.observe(viewer);
   }
 
   window.initReadingViewer = initReadingViewer;
