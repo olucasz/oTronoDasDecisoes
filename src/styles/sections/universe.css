@@ -318,6 +318,39 @@
   }
 }
 
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+  .universe-section__container {
+    padding-block: clamp(3.25rem, 5.5vw, 4.25rem);
+  }
+
+  .universe-section__header {
+    width: min(100%, 38rem);
+  }
+
+  .universe-section__header h2 {
+    max-width: 36rem;
+    margin-inline: auto;
+    font-size: clamp(3rem, 6vw, 3.65rem);
+  }
+
+  .universe-section__header p:not(.section-eyebrow) {
+    max-width: 42ch;
+  }
+
+  .universe-carousel {
+    margin-top: clamp(1.6rem, 3vw, 2.15rem);
+  }
+
+  .universe-carousel__track {
+    gap: var(--space-4);
+  }
+
+  .universe-card {
+    flex-basis: min(40vw, 20rem);
+    width: min(40vw, 20rem);
+  }
+}
+
 @media (min-width: 64rem) {
   .universe-section__container {
     display: flex;

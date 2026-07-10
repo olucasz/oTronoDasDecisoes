@@ -106,6 +106,7 @@
 
 @media (max-width: 63.9375rem) {
   .final-message__inner {
+    display: grid;
     grid-template-columns: 0.0625rem minmax(0, 1fr);
     grid-template-areas:
       "rule copy"

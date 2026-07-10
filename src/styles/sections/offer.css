@@ -346,6 +346,68 @@
   }
 }
 
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+  .offer-section__inner {
+    justify-items: center;
+    gap: clamp(1.75rem, 4.5vw, 2.85rem);
+    padding-block: clamp(2.75rem, 5vw, 4rem)
+      clamp(3.25rem, 6vw, 4.5rem);
+  }
+
+  .offer-section__lead,
+  .offer-section__gallery,
+  .offer-section__body {
+    justify-self: center;
+    width: min(100%, 40rem);
+    max-width: 40rem;
+  }
+
+  .offer-section__lead,
+  .offer-section__body {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .offer-section__eyebrow {
+    justify-self: center;
+    gap: var(--space-2);
+  }
+
+  .offer-section__eyebrow::after {
+    width: 2rem;
+    height: 0.0625rem;
+    background: currentColor;
+    content: "";
+  }
+
+  .offer-section h2 {
+    max-width: 11em;
+    margin-inline: auto;
+    font-size: clamp(2.75rem, 6vw, 4rem);
+    text-align: center;
+  }
+
+  .offer-section__copy {
+    max-width: 44ch;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .offer-section__actions,
+  .offer-section__price {
+    justify-items: center;
+  }
+
+  .offer-section__deadline {
+    text-align: center;
+  }
+
+  .offer-section__cta,
+  .offer-section__microcopy {
+    width: min(100%, 32rem);
+  }
+}
+
 @media (min-width: 64rem) {
   .offer-section {
     scroll-margin-top: 0;
