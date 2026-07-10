@@ -184,39 +184,46 @@
 
 @media (min-width: 48rem) {
   .site-footer__grid {
-    grid-template-columns: minmax(10rem, 1fr) minmax(8rem, auto) minmax(10rem, 1fr);
-    align-items: center;
-    column-gap: clamp(1.25rem, 3vw, 2.5rem);
+    grid-template-columns: minmax(14rem, 0.95fr) minmax(11rem, 0.7fr) minmax(
+        8rem,
+        0.55fr
+      );
+    align-items: start;
+    column-gap: clamp(2rem, 4vw, 4rem);
   }
 
   .site-footer__brand {
-    padding-right: 0;
+    padding-right: clamp(1rem, 2vw, 2rem);
   }
 
   .site-footer__quick-links {
-    order: 3;
-    justify-items: end;
-    text-align: right;
+    order: initial;
+    justify-items: start;
+    text-align: left;
   }
 
   .site-footer__links {
-    justify-items: end;
+    justify-items: start;
   }
 
   .site-footer__social-wrap {
-    order: 2;
-    justify-items: center;
-    text-align: center;
+    order: initial;
+    justify-items: end;
+    text-align: left;
   }
 
   .site-footer__social {
-    justify-content: center;
+    justify-content: flex-end;
+  }
+
+  .site-footer__bottom {
+    gap: var(--space-4);
   }
 }
 
 @media (min-width: 64rem) {
   .site-footer__inner {
-    padding-block: clamp(1.65rem, 2.6vw, 2.25rem);
+    padding-block: clamp(2.25rem, 3.5vw, 3rem);
   }
 }
 

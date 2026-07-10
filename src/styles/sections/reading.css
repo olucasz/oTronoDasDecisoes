@@ -10,7 +10,7 @@
   color: var(--color-text);
 }
 
-.reading-section::before {
+/* .reading-section::before {
   position: absolute;
   inset: 0 auto 0 0;
   z-index: 0;
@@ -26,7 +26,7 @@
   opacity: 0.18;
   pointer-events: none;
   -webkit-mask-image: linear-gradient(90deg, #000 0 58%, transparent 100%);
-}
+} */
 
 .reading-section__inner {
   position: relative;
@@ -271,7 +271,6 @@
   margin-top: var(--space-4);
   white-space: nowrap;
 }
-
 @media (min-width: 64rem) {
   .reading-section {
     --reading-book-height: 36rem;
@@ -348,7 +347,6 @@
     width: 100%;
     opacity: 0.12;
   }
-
   .reading-section__inner {
     gap: clamp(1.15rem, 4.4vw, 1.6rem);
     padding-block: clamp(1.75rem, 5.8vw, 2.3rem);

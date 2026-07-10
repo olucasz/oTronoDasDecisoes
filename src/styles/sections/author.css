@@ -303,7 +303,6 @@
   .author-section__eyebrow {
     gap: var(--space-2);
     margin-bottom: 0.35rem;
-    margin-bottom: 1rem;
   }
 
   .author-section__eyebrow::before,
@@ -315,7 +314,7 @@
     width: 100%;
     max-width: none;
     margin-top: 0;
-    font-size: clamp(2rem, 5.55vw, 1.64rem);
+    font-size: clamp(1.32rem, 5.55vw, 1.64rem);
     line-height: 1;
     letter-spacing: 0;
     white-space: nowrap;
